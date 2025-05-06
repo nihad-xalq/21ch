@@ -1,12 +1,12 @@
 'use client';
 
 import { LoadingProvider } from '@/context/LoadingContext';
-import SiteLoader from '@/components/SiteLoader';
-import { useEffect } from 'react';
 import { useLoading } from '@/context/LoadingContext';
+import SiteLoader from '@/components/SiteLoader';
 import Header from '@/components/Header';
-import Main from '@/components/Main';
 import Footer from '@/components/Footer';
+import Main from '@/components/Main';
+import { useEffect } from 'react';
 
 const RootContent = ({ children }: { children: React.ReactNode }) => {
   const { isLoading, stopLoading } = useLoading();

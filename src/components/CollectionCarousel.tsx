@@ -1,10 +1,10 @@
 'use client';
 
+import CollectionThumbnails from './CollectionThumbnails';
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import CollectionThumbnails from './CollectionThumbnails';
 import LoadingState from './LoadingState';
+import Image from 'next/image';
 
 interface CollectionItem {
   id: number;

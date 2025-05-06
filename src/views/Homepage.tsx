@@ -15,7 +15,7 @@ import Image from 'next/image';
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start']
@@ -62,13 +62,13 @@ const Homepage = () => {
           />
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ 
+            style={{
               backgroundImage: `url('/hero-bg.jpg')`,
               scale: heroScale,
               y: heroY
             } as HTMLMotionProps<'div'>['style']}
           />
-          <motion.div 
+          <motion.div
             className="relative z-20 text-center text-white px-4"
             style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
           >
@@ -89,7 +89,7 @@ const Homepage = () => {
               Zövqlü dəb sənətini kəşf edin
             </motion.p>
             <motion.button
-              className="px-6 sm:px-8 py-2.5 sm:py-3 border border-white hover:bg-white hover:text-black transition-colors text-sm sm:text-base"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 border border-white hover:bg-white hover:text-black transition-colors text-sm sm:text-base cursor-pointer"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: isLoading ? 0 : 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}

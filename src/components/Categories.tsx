@@ -58,13 +58,13 @@ const Categories = () => {
   return (
     <section className="py-12 px-4 max-w-7xl mx-auto overflow-hidden">
       <div className="mb-12">
-        <motion.h2
+        {/* <motion.h2
           ref={titleParallax.ref}
           style={{ y: titleParallax.y }}
           className="text-3xl font-bold text-center mb-8"
         >
           Kolleksiyalar
-        </motion.h2>
+        </motion.h2> */}
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map((category) => (
             <button

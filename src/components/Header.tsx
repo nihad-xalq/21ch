@@ -104,7 +104,7 @@ const Header = () => {
                 >
                   <button
                     onClick={() => handleNavClick(item.href)}
-                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity ${isScrolled ? 'text-gray-900' : 'text-black'
+                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity cursor-pointer ${isScrolled ? 'text-gray-900' : 'text-black'
                       }`}
                   >
                     {item.name}

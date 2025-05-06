@@ -250,7 +250,7 @@ const Homepage = () => {
                 </div>
                 <motion.button
                   type="submit"
-                  className="w-full px-6 sm:px-8 py-2.5 sm:py-3 bg-black text-white hover:bg-gray-800 transition-colors text-sm sm:text-base"
+                  className="w-full px-6 sm:px-8 py-2.5 sm:py-3 bg-black text-white hover:bg-gray-800 transition-colors text-sm sm:text-base cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

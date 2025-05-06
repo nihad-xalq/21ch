@@ -32,21 +32,7 @@ export const products: Product[] = [
     category: 'T-Shirts',
     image: '/products/tshirt-3.jpg'
   },
-  {
-    id: 't4',
-    name: 'Qrafik Naxışlı Köynək',
-    price: 32.99,
-    category: 'T-Shirts',
-    image: '/products/tshirt-4.jpg'
-  },
-  {
-    id: 't5',
-    name: 'Premium Pambıq Qarışığı',
-    price: 44.99,
-    category: 'T-Shirts',
-    image: '/products/tshirt-5.jpg',
-    isNew: true
-  },
+  
 
   // Donlar
   {
@@ -96,21 +82,6 @@ export const products: Product[] = [
     category: 'Jeans',
     image: '/products/jeans-2.jpg'
   },
-  {
-    id: 'j3',
-    name: 'Boyfriend Stil Cins',
-    price: 94.99,
-    category: 'Jeans',
-    image: '/products/jeans-3.jpg'
-  },
-  {
-    id: 'j4',
-    name: 'Geniş Paça Denim',
-    price: 99.99,
-    category: 'Jeans',
-    image: '/products/jeans-4.jpg',
-    isNew: true
-  },
 
   // Gödəkçələr
   {
@@ -120,28 +91,6 @@ export const products: Product[] = [
     category: 'Jackets',
     image: '/products/jacket-1.jpg',
     isBestseller: true
-  },
-  {
-    id: 'jk2',
-    name: 'Denim Gödəkçə',
-    price: 89.99,
-    category: 'Jackets',
-    image: '/products/jacket-2.jpg'
-  },
-  {
-    id: 'jk3',
-    name: 'Bomber Gödəkçə',
-    price: 129.99,
-    category: 'Jackets',
-    image: '/products/jacket-3.jpg'
-  },
-  {
-    id: 'jk4',
-    name: 'Blazer',
-    price: 149.99,
-    category: 'Jackets',
-    image: '/products/jacket-4.jpg',
-    isNew: true
   },
 
   // Svitrlər
@@ -185,28 +134,6 @@ export const products: Product[] = [
     image: '/products/skirt-1.jpg',
     isBestseller: true
   },
-  {
-    id: 'sk2',
-    name: 'A-Kəsimli Mini Ətək',
-    price: 49.99,
-    category: 'Skirts',
-    image: '/products/skirt-2.jpg'
-  },
-  {
-    id: 'sk3',
-    name: 'Qələm Ətək',
-    price: 79.99,
-    category: 'Skirts',
-    image: '/products/skirt-3.jpg'
-  },
-  {
-    id: 'sk4',
-    name: 'Sarğı Ətək',
-    price: 59.99,
-    category: 'Skirts',
-    image: '/products/skirt-4.jpg',
-    isNew: true
-  },
 
   // Kostyumlar
   {
@@ -230,14 +157,6 @@ export const products: Product[] = [
     price: 259.99,
     category: 'Suits',
     image: '/products/suit-3.jpg'
-  },
-  {
-    id: 'su4',
-    name: 'Müasir Kəsimli Kostyum',
-    price: 349.99,
-    category: 'Suits',
-    image: '/products/suit-4.jpg',
-    isNew: true
   },
 
   // Aktiv geyimlər
@@ -287,21 +206,6 @@ export const products: Product[] = [
     price: 29.99,
     category: 'Accessories',
     image: '/products/accessory-2.jpg'
-  },
-  {
-    id: 'ac3',
-    name: 'Bəyanat Boyunbağı',
-    price: 49.99,
-    category: 'Accessories',
-    image: '/products/accessory-3.jpg'
-  },
-  {
-    id: 'ac4',
-    name: 'Dəri Çanta',
-    price: 129.99,
-    category: 'Accessories',
-    image: '/products/accessory-4.jpg',
-    isNew: true
   },
 
   // Ayaqqabılar

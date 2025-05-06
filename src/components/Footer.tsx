@@ -3,12 +3,13 @@
 import ScrollSlideIn from './animations/ScrollSlideIn';
 import ScrollFadeIn from './animations/ScrollFadeIn';
 import { motion } from 'framer-motion';
+import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Instagram', href: '#' },
-    { name: 'Facebook', href: '#' },
-    { name: 'Twitter', href: '#' }
+    { name: 'Instagram', href: '#', icon: FaInstagram },
+    { name: 'Facebook', href: '#', icon: FaFacebookF },
+    { name: 'Twitter', href: '#', icon: FaTwitter }
   ];
 
   return (
@@ -23,26 +24,27 @@ const Footer = () => {
               <p className="text-gray-600">Ünvan: 123 Fashion Street, City</p>
             </div>
           </ScrollSlideIn>
-          
+
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
               <h3 className="text-lg font-light mb-4">Bizi izləyin</h3>
-              <div className="flex space-x-4">
+              <div className="flex space-x-6">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.name}
                     href={social.href}
-                    className="text-gray-600 hover:text-gray-900"
+                    className="text-gray-600 hover:text-gray-900 text-xl"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
+                    title={social.name}
                   >
-                    {social.name}
+                    <social.icon />
                   </motion.a>
                 ))}
               </div>
             </div>
           </ScrollSlideIn>
-          
+
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
               <h3 className="text-lg font-light mb-4">Xəbərlərimiz</h3>
@@ -57,7 +59,7 @@ const Footer = () => {
                 />
                 <motion.button
                   type="submit"
-                  className="ml-2 px-4 py-2 bg-black text-white hover:bg-gray-800 transition-colors"
+                  className="ml-2 px-4 py-2 bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -67,7 +69,7 @@ const Footer = () => {
             </div>
           </ScrollSlideIn>
         </div>
-        
+
         <ScrollFadeIn delay={0.2} rootMargin="-50px">
           <div className="mt-12 pt-8 border-t border-gray-100 text-center text-gray-600">
             <p>&copy; {new Date().getFullYear()} 21 Couture House. Bütün hüquqlar qorunur.</p>

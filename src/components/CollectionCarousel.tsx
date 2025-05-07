@@ -237,6 +237,8 @@ const CollectionCarousel = ({
           <>
             <motion.button
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+              name="collection-carousel-prev"
+              title="collection-carousel-prev"
               onClick={() => paginate(-1)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -247,6 +249,8 @@ const CollectionCarousel = ({
             </motion.button>
             <motion.button
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+              name="collection-carousel-next"
+              title="collection-carousel-next"
               onClick={() => paginate(1)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -261,6 +265,8 @@ const CollectionCarousel = ({
         {/* Autoplay control */}
         <motion.button
           className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+          name="collection-carousel-autoplay"
+          title="collection-carousel-autoplay"
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -282,6 +288,8 @@ const CollectionCarousel = ({
           {items.map((_, index) => (
             <motion.button
               key={index}
+              name="collection-carousel-dot"
+              title="collection-carousel-dot"
               onClick={() => {
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);

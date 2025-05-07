@@ -1,15 +1,17 @@
 'use client';
 
+import { FaInstagram, FaFacebookF, FaTiktok } from 'react-icons/fa';
 import ScrollSlideIn from './animations/ScrollSlideIn';
 import ScrollFadeIn from './animations/ScrollFadeIn';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
+
+const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Instagram', href: '#', icon: FaInstagram },
-    { name: 'Facebook', href: '#', icon: FaFacebookF },
-    { name: 'Twitter', href: '#', icon: FaTwitter }
+    { name: 'Instagram', href: 'https://www.instagram.com/21couturehouse/', icon: FaInstagram },
+    { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61567001126314', icon: FaFacebookF },
+    { name: 'Tiktok', href: 'https://www.tiktok.com/@21couturehouse', icon: FaTiktok }
   ];
 
   return (
@@ -20,8 +22,8 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-light mb-4">Əlaqə</h3>
               <p className="text-gray-600">Email: info@couture.com</p>
-              <p className="text-gray-600">Telefon: +1 (555) 123-4567</p>
-              <p className="text-gray-600">Ünvan: 123 Fashion Street, City</p>
+              <p className="text-gray-600">Telefon: +994 50 299 21 10</p>
+              <p className="text-gray-600">Ünvan: Bülbül prospekti 40e, Bakı</p>
             </div>
           </ScrollSlideIn>
 
@@ -33,6 +35,8 @@ const Footer = () => {
                   <motion.a
                     key={social.name}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-600 hover:text-gray-900 text-xl"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
@@ -72,7 +76,7 @@ const Footer = () => {
 
         <ScrollFadeIn delay={0.2} rootMargin="-50px">
           <div className="mt-12 pt-8 border-t border-gray-100 text-center text-gray-600">
-            <p>&copy; {new Date().getFullYear()} 21 Couture House. Bütün hüquqlar qorunur.</p>
+            <p>{currentYear} &copy;  21 Couture House. Bütün hüquqlar qorunur.</p>
           </div>
         </ScrollFadeIn>
       </div>

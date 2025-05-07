@@ -1,30 +1,20 @@
 'use client';
 
+import { useParallax, useParallaxImage } from '@/hooks/useParallax';
 import ScrollSlideIn from '@/components/animations/ScrollSlideIn';
 import ScrollScaleIn from '@/components/animations/ScrollScaleIn';
 import CollectionCarousel from '@/components/CollectionCarousel';
 import ScrollFadeIn from '@/components/animations/ScrollFadeIn';
-import { motion, AnimatePresence, HTMLMotionProps, useScroll, useTransform } from 'framer-motion';
-import { useParallax, useParallaxImage } from '@/hooks/useParallax';
+import { motion, AnimatePresence } from 'framer-motion';
 import LoadingState from '@/components/LoadingState';
 import Categories from '@/components/Categories';
 import { collections } from '@/data/collections';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import Hero from '@/components/Hero';
 import Image from 'next/image';
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start']
-  });
-
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-
   const aboutImageParallax = useParallaxImage(1.15);
   const quoteParallax = useParallax({ offset: 40, direction: 'up' });
 
@@ -55,56 +45,19 @@ const Homepage = () => {
         transition={{ duration: 0.5 }}
       >
         {/* Hero Section */}
-        <section ref={heroRef} className="relative h-[80vh] sm:h-screen flex items-center justify-center overflow-hidden">
-          <motion.div
-            className="absolute inset-0 bg-black/30 z-10"
-            style={{ opacity: heroOpacity }}
-          />
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('/hero-bg.jpg')`,
-              scale: heroScale,
-              y: heroY
-            } as HTMLMotionProps<'div'>['style']}
-          />
-          <motion.div
-            className="relative z-20 text-center text-white px-4"
-            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
-          >
-            <motion.h1
-              className="text-4xl sm:text-5xl md:text-7xl font-light mb-4 sm:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isLoading ? 0 : 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              Zəriflik Sənəti
-            </motion.h1>
-            <motion.p
-              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isLoading ? 0 : 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
-              Zövqlü dəb sənətini kəşf edin
-            </motion.p>
-            <motion.button
-              className="px-6 sm:px-8 py-2.5 sm:py-3 border border-white hover:bg-white hover:text-black transition-colors text-sm sm:text-base cursor-pointer"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: isLoading ? 0 : 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Kolleksiyalarımızı Kəşf et
-            </motion.button>
-          </motion.div>
-        </section>
+        <Hero />
 
-        {/* Categories Section */}
-        <ScrollFadeIn>
-          <Categories />
-        </ScrollFadeIn>
+        {/* Collections Section */}
+        <section id="collections" className="bg-gray-50 py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollFadeIn>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-center mb-12 sm:mb-16">Son Kolleksiyalarımız</h2>
+            </ScrollFadeIn>
+            <ScrollSlideIn direction="up">
+              <CollectionCarousel items={collections} />
+            </ScrollSlideIn>
+          </div>
+        </section>
 
         {/* About Section */}
         <section
@@ -198,17 +151,10 @@ const Homepage = () => {
           </div>
         </section>
 
-        {/* Collections Section */}
-        <section id="collections" className="bg-gray-50 py-16 sm:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ScrollFadeIn>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-center mb-12 sm:mb-16">Son Kolleksiyalarımız</h2>
-            </ScrollFadeIn>
-            <ScrollSlideIn direction="up">
-              <CollectionCarousel items={collections} />
-            </ScrollSlideIn>
-          </div>
-        </section>
+        {/* Categories Section */}
+        {/* <ScrollFadeIn> */}
+        <Categories />
+        {/* </ScrollFadeIn> */}
 
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -259,6 +205,70 @@ const Homepage = () => {
               </form>
             </div>
           </ScrollScaleIn>
+        </section>
+
+
+        <section
+          id="map"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
+        >
+          <div className="mb-10 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3">
+              Atelyemizə Gəlin
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+              Ünvanımızı xəritədə tapın və bizi ziyarət edin. Sizi 21 Couture House-da görməkdən məmnun olarıq!
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1 w-full">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl border-0 min-h-[300px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d450.67424819274333!2d49.84266215021618!3d40.37662979103134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307da5c0f50bb3%3A0xbaffe7f2e3051f9c!2s40e%20Bulbul%20Ave%2C%20Baku!5e1!3m2!1sen!2saz!4v1746612626922!5m2!1sen!2saz"
+                  width="100%"
+                  height="400"
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  style={{ border: 0, minHeight: 300 }}
+                  className="w-full h-[300px] md:h-[400px] border-0 rounded-lg"
+                  title="21 Couture House Location"
+                ></iframe>
+                <div className="absolute top-4 left-4 bg-white/80 px-4 py-2 rounded-lg shadow text-xs sm:text-sm font-medium text-gray-800 flex items-center gap-2 pointer-events-none">
+                  <svg className="w-4 h-4 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 9 7 9s7-3.75 7-9c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6a2.5 2.5 0 0 1 0 5.5z" />
+                  </svg>
+                  40e Bülbül prospekti, Bakı
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 w-full max-w-md mx-auto md:mx-0">
+              <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                <h3 className="text-lg font-semibold mb-2">Əlaqə Məlumatları</h3>
+                <ul className="text-gray-700 text-sm space-y-2 mb-4">
+                  <li>
+                    <span className="font-medium">Ünvan:</span> 40e Bülbül prospekti, Bakı
+                  </li>
+                  <li>
+                    <span className="font-medium">Telefon:</span>{" "}
+                    <a href="tel:+994502992110" className="hover:underline text-pink-600">+994 50 299 21 10</a>
+                  </li>
+                  <li>
+                    <span className="font-medium">Email:</span>{" "}
+                    <a href="mailto:info@couture.com" className="hover:underline text-pink-600">info@couture.com</a>
+                  </li>
+                </ul>
+                <a
+                  href="https://www.google.com/maps/dir//40e+B%C3%BClb%C3%BCl+Ave,+Baku"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+                >
+                  Yol Tarifi Al
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
       </motion.div>
     </>

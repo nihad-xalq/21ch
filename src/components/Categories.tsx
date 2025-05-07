@@ -56,23 +56,23 @@ const Categories = () => {
     : products.filter(product => product.category === categoryMapping[activeCategory as keyof typeof categoryMapping]);
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto overflow-hidden">
+    <section className="py-12 px-4 max-w-7xl mx-auto overflow-hidden" id="products">
       <div className="mb-12">
-        {/* <motion.h2
+        <motion.h2
           ref={titleParallax.ref}
           style={{ y: titleParallax.y }}
           className="text-3xl font-bold text-center mb-8"
         >
-          Kolleksiyalar
-        </motion.h2> */}
+          Məhsullarımız
+        </motion.h2>
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-2 rounded-full transition-all cursor-pointer ${activeCategory === category
-                  ? 'bg-black text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+                ? 'bg-black text-white'
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                 }`}
             >
               {category}

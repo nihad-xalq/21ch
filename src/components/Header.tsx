@@ -30,9 +30,10 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { name: 'Haqqımızda', href: '#about' },
     { name: 'Kolleksiyalar', href: '#collections' },
-    { name: 'Əlaqə', href: '#contact' }
+    { name: 'Haqqımızda', href: '#about' },
+    { name: 'Məhsullar', href: '#products' },
+    { name: 'Əlaqə', href: '#contact' },
   ];
 
   const mobileMenuVariants = {

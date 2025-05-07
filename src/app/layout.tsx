@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import { defaultMetadata } from './metadata';
-import { Montserrat } from 'next/font/google';
-import './globals.css';
 import RootWrapper from '@/components/RootWrapper';
+import { Montserrat } from 'next/font/google';
+import { defaultMetadata } from './metadata';
+import type { Metadata } from 'next';
+import './globals.css';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -20,6 +20,36 @@ export default function RootLayout({
   return (
     <html lang="az" dir="ltr">
       <head>
+        {/* Meta tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="21 Couture House - Əl işləri ilə hazırlanmış dəbdəbəli geyimlər, müasir və ənənəvi dizaynların vəhdəti. Yeni kolleksiyamızı kəşf edin."
+        />
+        <meta
+          name="keywords"
+          content="21 Couture, moda, dəb, əl işi, geyim, kolleksiya, atelye, Azərbaycan, lüks, couture"
+        />
+        <meta name="author" content="21 Couture House" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="21 Couture House" />
+        <meta
+          property="og:description"
+          content="Əl işləri ilə hazırlanmış dəbdəbəli geyimlər və yeni kolleksiyalar. 21 Couture House ilə tanış olun."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://21couture.az" />
+        <meta property="og:image" content="https://21couture.az/og-image.jpg" />
+        <meta property="og:locale" content="az_AZ" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="21 Couture House" />
+        <meta
+          name="twitter:description"
+          content="Əl işləri ilə hazırlanmış dəbdəbəli geyimlər və yeni kolleksiyalar. 21 Couture House ilə tanış olun."
+        />
+        <meta name="twitter:image" content="https://21couture.az/og-image.jpg" />
+
         <link rel="canonical" href="https://21couture.az" />
         <link rel="alternate" hrefLang="az" href="https://21couture.az" />
 
@@ -32,7 +62,25 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link
           rel="preload"
-          href="/hero-bg.jpg"
+          href="/hero/hero-1.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          href="/hero/hero-2.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          href="/hero/hero-3.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          href="/hero/hero-4.jpg"
           as="image"
           type="image/jpeg"
         />

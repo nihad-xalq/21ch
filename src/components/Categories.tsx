@@ -10,27 +10,19 @@ const categories = [
   'Hamısı',
   'Köynəklər',
   'Donlar',
-  'Cinslər',
   'Gödəkçələr',
   'Svitrlər',
   'Ətəklər',
   'Kostyumlar',
-  'Aktiv geyimlər',
-  'Aksesuarlar',
-  'Ayaqqabılar'
 ];
 
 const categoryMapping = {
   'Köynəklər': 'T-Shirts',
   'Donlar': 'Dresses',
-  'Cinslər': 'Jeans',
   'Gödəkçələr': 'Jackets',
   'Svitrlər': 'Sweaters',
   'Ətəklər': 'Skirts',
   'Kostyumlar': 'Suits',
-  'Aktiv geyimlər': 'Activewear',
-  'Aksesuarlar': 'Accessories',
-  'Ayaqqabılar': 'Shoes'
 };
 
 const Categories = () => {

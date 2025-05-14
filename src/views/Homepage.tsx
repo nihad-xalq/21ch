@@ -157,7 +157,7 @@ const Homepage = () => {
         {/* </ScrollFadeIn> */}
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        {/* <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="text-center mb-12 sm:mb-16">
             <ScrollFadeIn>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4">
@@ -205,7 +205,7 @@ const Homepage = () => {
               </form>
             </div>
           </ScrollScaleIn>
-        </section>
+        </section> */}
 
 
         <section
@@ -234,11 +234,11 @@ const Homepage = () => {
                   className="w-full h-[300px] md:h-[400px] border-0 rounded-lg"
                   title="21 Couture House Location"
                 ></iframe>
-                <div className="absolute top-4 left-4 bg-white/80 px-4 py-2 rounded-lg shadow text-xs sm:text-sm font-medium text-gray-800 flex items-center gap-2 pointer-events-none">
+                <div className="absolute top-4 right-4 bg-white/80 px-4 py-2 rounded-lg shadow text-xs sm:text-sm font-medium text-gray-800 flex items-center gap-2 pointer-events-none">
                   <svg className="w-4 h-4 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 9 7 9s7-3.75 7-9c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6a2.5 2.5 0 0 1 0 5.5z" />
                   </svg>
-                  40e Bülbül prospekti, Bakı
+                  24 Bülbül prospekti, Bakı
                 </div>
               </div>
             </div>
@@ -247,15 +247,15 @@ const Homepage = () => {
                 <h3 className="text-lg font-semibold mb-2">Əlaqə Məlumatları</h3>
                 <ul className="text-gray-700 text-sm space-y-2 mb-4">
                   <li>
-                    <span className="font-medium">Ünvan:</span> 40e Bülbül prospekti, Bakı
+                    <span className="font-medium">Ünvan:</span> 24 Bülbül prospekti, Bakı
                   </li>
                   <li>
                     <span className="font-medium">Telefon:</span>{" "}
-                    <a href="tel:+994502992110" className="hover:underline text-pink-600">+994 50 299 21 10</a>
+                    <a href="tel:+994107172110" className="hover:underline text-pink-600">+994 10 717 21 10</a>
                   </li>
                   <li>
                     <span className="font-medium">Email:</span>{" "}
-                    <a href="mailto:info@couture.com" className="hover:underline text-pink-600">info@couture.com</a>
+                    <a href="mailto:21couturehouse@gmail.com" className="hover:underline text-pink-600">21couturehouse@gmail.com</a>
                   </li>
                 </ul>
                 <a

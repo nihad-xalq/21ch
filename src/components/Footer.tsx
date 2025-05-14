@@ -20,16 +20,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-lg font-light mb-4">Əlaqə</h3>
-              <p className="text-gray-600">Email: info@couture.com</p>
-              <p className="text-gray-600">Telefon: +994 50 299 21 10</p>
-              <p className="text-gray-600">Ünvan: Bülbül prospekti 40e, Bakı</p>
+              <h3 className="text-xl font-medium mb-6 text-gray-900">Əlaqə</h3>
+              <div className="space-y-3">
+                <p className="text-gray-500 text-sm">Email: 21couturehouse@gmail.com</p>
+                <p className="text-gray-500 text-sm">Telefon: +994 10 717 21 10</p>
+                <p className="text-gray-500 text-sm">Ünvan: Bülbül prospekti 24, Bakı</p>
+              </div>
             </div>
           </ScrollSlideIn>
 
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-lg font-light mb-4">Bizi izləyin</h3>
+              <h3 className="text-xl font-medium mb-6 text-gray-900">Bizi izləyin</h3>
               <div className="flex space-x-6">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -37,7 +39,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 text-xl"
+                    className="text-gray-500 hover:text-gray-900 text-xl transition-colors"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     title={social.name}
@@ -51,32 +53,36 @@ const Footer = () => {
 
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-lg font-light mb-4">Xəbərlərimiz</h3>
-              <p className="text-gray-600 mb-4">Xəbərlərimizə abonə olun və təkliflərimizə baxın.</p>
-              <form className="flex">
-                <motion.input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:border-gray-500"
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                />
-                <motion.button
-                  type="submit"
-                  className="ml-2 px-4 py-2 bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Abonə ol
-                </motion.button>
-              </form>
+              <h3 className="text-xl font-medium mb-6 text-gray-900">Qısa yollar</h3>
+              <ul className="space-y-3">
+                {/* <li>
+                  <a href="/" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                    Ana səhifə
+                  </a>
+                </li> */}
+                <li>
+                  <a href="#about" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                    Haqqımızda
+                  </a>
+                </li>
+                <li>
+                  <a href="#products" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                    Məhsullar
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                    Əlaqə
+                  </a>
+                </li>
+              </ul>
             </div>
           </ScrollSlideIn>
         </div>
 
         <ScrollFadeIn delay={0.2} rootMargin="-50px">
-          <div className="mt-12 pt-8 border-t border-gray-100 text-center text-gray-600">
-            <p>{currentYear} &copy;  21 Couture House. Bütün hüquqlar qorunur.</p>
+          <div className="mt-12 pt-8 border-t border-gray-100 text-center">
+            <p className="text-gray-500 text-sm">{currentYear} &copy;  21 Couture House. Bütün hüquqlar qorunur.</p>
           </div>
         </ScrollFadeIn>
       </div>

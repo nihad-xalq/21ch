@@ -25,13 +25,13 @@ export const products: Product[] = [
     category: 'T-Shirts',
     image: '/products/tshirt-2.jpg'
   },
-  {
-    id: 't3',
-    name: 'Zolaqlı Uzunqol Köynək',
-    price: 39.99,
-    category: 'T-Shirts',
-    image: '/products/tshirt-3.jpg'
-  },
+  // {
+  //   id: 't3',
+  //   name: 'Zolaqlı Uzunqol Köynək',
+  //   price: 39.99,
+  //   category: 'T-Shirts',
+  //   image: '/products/tshirt-3.jpg'
+  // },
   
 
   // Donlar
@@ -43,45 +43,29 @@ export const products: Product[] = [
     image: '/products/dress-1.jpg',
     isBestseller: true
   },
-  {
-    id: 'd2',
-    name: 'Axşam Kokteyl Donu',
-    price: 129.99,
-    category: 'Dresses',
-    image: '/products/dress-2.jpg'
-  },
-  {
-    id: 'd3',
-    name: 'Gündəlik Maxi Don',
-    price: 79.99,
-    category: 'Dresses',
-    image: '/products/dress-3.jpg'
-  },
-  {
-    id: 'd4',
-    name: 'İpək Sarğı Don',
-    price: 159.99,
-    category: 'Dresses',
-    image: '/products/dress-4.jpg',
-    isNew: true
-  },
+  // {
+  //   id: 'd2',
+  //   name: 'Axşam Kokteyl Donu',
+  //   price: 129.99,
+  //   category: 'Dresses',
+  //   image: '/products/dress-2.jpg'
+  // },
+  // {
+  //   id: 'd3',
+  //   name: 'Gündəlik Maxi Don',
+  //   price: 79.99,
+  //   category: 'Dresses',
+  //   image: '/products/dress-3.jpg'
+  // },
+  // {
+  //   id: 'd4',
+  //   name: 'İpək Sarğı Don',
+  //   price: 159.99,
+  //   category: 'Dresses',
+  //   image: '/products/dress-4.jpg',
+  //   isNew: true
+  // },
 
-  // Cinslər
-  {
-    id: 'j1',
-    name: 'Klassik Düz Cins',
-    price: 79.99,
-    category: 'Jeans',
-    image: '/products/jeans-1.jpg',
-    isBestseller: true
-  },
-  {
-    id: 'j2',
-    name: 'Yüksəkbel Dar Cins',
-    price: 89.99,
-    category: 'Jeans',
-    image: '/products/jeans-2.jpg'
-  },
 
   // Gödəkçələr
   {
@@ -109,21 +93,21 @@ export const products: Product[] = [
     category: 'Sweaters',
     image: '/products/sweater-2.jpg'
   },
-  {
-    id: 's3',
-    name: 'Boğazlı Sviter',
-    price: 89.99,
-    category: 'Sweaters',
-    image: '/products/sweater-3.jpg'
-  },
-  {
-    id: 's4',
-    name: 'V-Yaxa Trikotaj',
-    price: 79.99,
-    category: 'Sweaters',
-    image: '/products/sweater-4.jpg',
-    isNew: true
-  },
+  // {
+  //   id: 's3',
+  //   name: 'Boğazlı Sviter',
+  //   price: 89.99,
+  //   category: 'Sweaters',
+  //   image: '/products/sweater-3.jpg'
+  // },
+  // {
+  //   id: 's4',
+  //   name: 'V-Yaxa Trikotaj',
+  //   price: 79.99,
+  //   category: 'Sweaters',
+  //   image: '/products/sweater-4.jpg',
+  //   isNew: true
+  // },
 
   // Ətəklər
   {
@@ -151,13 +135,13 @@ export const products: Product[] = [
     category: 'Suits',
     image: '/products/suit-2.jpg'
   },
-  {
-    id: 'su3',
-    name: 'Yay Kətan Kostyumu',
-    price: 259.99,
-    category: 'Suits',
-    image: '/products/suit-3.jpg'
-  },
+  // {
+  //   id: 'su3',
+  //   name: 'Yay Kətan Kostyumu',
+  //   price: 259.99,
+  //   category: 'Suits',
+  //   image: '/products/suit-3.jpg'
+  // },
 
   // Aktiv geyimlər
   {
@@ -168,28 +152,28 @@ export const products: Product[] = [
     image: '/products/activewear-1.jpg',
     isBestseller: true
   },
-  {
-    id: 'a2',
-    name: 'İdman Sutyeni',
-    price: 34.99,
-    category: 'Activewear',
-    image: '/products/activewear-2.jpg'
-  },
-  {
-    id: 'a3',
-    name: 'Qaçış Şortları',
-    price: 29.99,
-    category: 'Activewear',
-    image: '/products/activewear-3.jpg'
-  },
-  {
-    id: 'a4',
-    name: 'Yoga Dəsti',
-    price: 89.99,
-    category: 'Activewear',
-    image: '/products/activewear-4.jpg',
-    isNew: true
-  },
+  // {
+  //   id: 'a2',
+  //   name: 'İdman Sutyeni',
+  //   price: 34.99,
+  //   category: 'Activewear',
+  //   image: '/products/activewear-2.jpg'
+  // },
+  // {
+  //   id: 'a3',
+  //   name: 'Qaçış Şortları',
+  //   price: 29.99,
+  //   category: 'Activewear',
+  //   image: '/products/activewear-3.jpg'
+  // },
+  // {
+  //   id: 'a4',
+  //   name: 'Yoga Dəsti',
+  //   price: 89.99,
+  //   category: 'Activewear',
+  //   image: '/products/activewear-4.jpg',
+  //   isNew: true
+  // },
 
   // Aksesuarlar
   {
@@ -217,26 +201,26 @@ export const products: Product[] = [
     image: '/products/shoes-1.jpg',
     isBestseller: true
   },
-  {
-    id: 'sh2',
-    name: 'İdman Ayaqqabısı',
-    price: 89.99,
-    category: 'Shoes',
-    image: '/products/shoes-2.jpg'
-  },
-  {
-    id: 'sh3',
-    name: 'Bilekli Çəkmə',
-    price: 149.99,
-    category: 'Shoes',
-    image: '/products/shoes-3.jpg'
-  },
-  {
-    id: 'sh4',
-    name: 'Yay Sandalları',
-    price: 69.99,
-    category: 'Shoes',
-    image: '/products/shoes-4.jpg',
-    isNew: true
-  }
+  // {
+  //   id: 'sh2',
+  //   name: 'İdman Ayaqqabısı',
+  //   price: 89.99,
+  //   category: 'Shoes',
+  //   image: '/products/shoes-2.jpg'
+  // },
+  // {
+  //   id: 'sh3',
+  //   name: 'Bilekli Çəkmə',
+  //   price: 149.99,
+  //   category: 'Shoes',
+  //   image: '/products/shoes-3.jpg'
+  // },
+  // {
+  //   id: 'sh4',
+  //   name: 'Yay Sandalları',
+  //   price: 69.99,
+  //   category: 'Shoes',
+  //   image: '/products/shoes-4.jpg',
+  //   isNew: true
+  // }
 ];

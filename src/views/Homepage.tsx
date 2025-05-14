@@ -2,7 +2,6 @@
 
 import { useParallax, useParallaxImage } from '@/hooks/useParallax';
 import ScrollSlideIn from '@/components/animations/ScrollSlideIn';
-import ScrollScaleIn from '@/components/animations/ScrollScaleIn';
 import CollectionCarousel from '@/components/CollectionCarousel';
 import ScrollFadeIn from '@/components/animations/ScrollFadeIn';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -27,10 +26,10 @@ const Homepage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Form submitted');
-  };
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   console.log('Form submitted');
+  // };
 
   return (
     <>

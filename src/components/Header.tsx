@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Logo from './Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,7 +91,7 @@ const Header = () => {
                 className={`text-2xl font-light tracking-wider ${isScrolled || isMenuOpen ? 'text-black' : 'text-black'
                   }`}
               >
-                21 COUTURE
+                <Logo />
               </Link>
             </motion.div>
 

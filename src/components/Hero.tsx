@@ -64,13 +64,13 @@ const Hero = () => {
                 </div>
             )}
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="sync">
                 <motion.div
                     key={currentIndex}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="absolute inset-0"
                 >
                     <Image
@@ -86,7 +86,7 @@ const Hero = () => {
                         blurDataURL={blurDataURL}
                     />
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/30" />
                 </motion.div>
             </AnimatePresence>
 
@@ -103,7 +103,7 @@ const Hero = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-3 bg-white text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer"
+                        className="px-8 py-3 bg-white text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white hover:border hover:border-white transition-colors duration-200 cursor-pointer"
                     >
                         Kolleksiyaya baxın
                     </motion.button>
@@ -118,7 +118,7 @@ const Hero = () => {
                         name="heroImages-carousel-dot"
                         title="heroImages-carousel-dot"
                         onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-white' : 'bg-white/50'
+                        className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${index === currentIndex ? 'bg-white' : 'bg-white/50'
                             }`}
                         whileHover={{ scale: 1.5 }}
                         whileTap={{ scale: 0.9 }}

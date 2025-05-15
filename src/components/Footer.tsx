@@ -4,6 +4,7 @@ import { FaInstagram, FaFacebookF, FaTiktok } from 'react-icons/fa';
 import ScrollSlideIn from './animations/ScrollSlideIn';
 import ScrollFadeIn from './animations/ScrollFadeIn';
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const currentYear = new Date().getFullYear();
 
@@ -17,37 +18,11 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ScrollSlideIn direction="up" rootMargin="-100px">
-            <div>
-              <h3 className="text-xl font-medium mb-6 text-gray-900">Əlaqə</h3>
-              <div className="space-y-3">
-                <p className="text-gray-500 text-sm">Email: 21couturehouse@gmail.com</p>
-                <p className="text-gray-500 text-sm">Telefon: +994 10 717 21 10</p>
-                <p className="text-gray-500 text-sm">Ünvan: Bülbül prospekti 24, Bakı</p>
-              </div>
-            </div>
-          </ScrollSlideIn>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-xl font-medium mb-6 text-gray-900">Bizi izləyin</h3>
-              <div className="flex space-x-6">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-900 text-xl transition-colors"
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    title={social.name}
-                  >
-                    <social.icon />
-                  </motion.a>
-                ))}
-              </div>
+              <Logo />
             </div>
           </ScrollSlideIn>
 
@@ -76,6 +51,39 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
+            </div>
+          </ScrollSlideIn>
+
+          <ScrollSlideIn direction="up" rootMargin="-100px">
+            <div>
+              <h3 className="text-xl font-medium mb-6 text-gray-900">Əlaqə</h3>
+              <div className="space-y-3">
+                <p className="text-gray-500 text-sm">Email: 21couturehouse@gmail.com</p>
+                <p className="text-gray-500 text-sm">Telefon: +994 10 717 21 10</p>
+                <p className="text-gray-500 text-sm">Ünvan: Bülbül prospekti 24, Bakı</p>
+              </div>
+            </div>
+          </ScrollSlideIn>
+
+          <ScrollSlideIn direction="up" rootMargin="-100px" className='justify-self-end'>
+            <div>
+              <h3 className="text-xl font-medium mb-6 text-gray-900">Bizi izləyin</h3>
+              <div className="flex space-x-6">
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-900 text-xl transition-colors"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    title={social.name}
+                  >
+                    <social.icon />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </ScrollSlideIn>
         </div>

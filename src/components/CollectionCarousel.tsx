@@ -236,7 +236,7 @@ const CollectionCarousel = ({
         {!isLoading && (
           <>
             <motion.button
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100 cursor-pointer"
               name="collection-carousel-prev"
               title="collection-carousel-prev"
               onClick={() => paginate(-1)}
@@ -248,7 +248,7 @@ const CollectionCarousel = ({
               </svg>
             </motion.button>
             <motion.button
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100 cursor-pointer"
               name="collection-carousel-next"
               title="collection-carousel-next"
               onClick={() => paginate(1)}
@@ -294,7 +294,7 @@ const CollectionCarousel = ({
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);
               }}
-              className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-white' : 'bg-white/50'
+              className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${index === currentIndex ? 'bg-white' : 'bg-white/50'
                 }`}
               whileHover={{ scale: 1.5 }}
               whileTap={{ scale: 0.9 }}

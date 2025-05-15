@@ -28,8 +28,8 @@ const Footer = () => {
 
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-xl font-medium mb-6 text-gray-900">Qısa yollar</h3>
-              <ul className="space-y-3">
+              <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">Qısa yollar</h3>
+              <ul className="space-y-2 md:space-y-3">
                 {/* <li>
                   <a href="/" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
                     Ana səhifə
@@ -45,18 +45,18 @@ const Footer = () => {
                     Məhsullar
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#contact" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
                     Əlaqə
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </ScrollSlideIn>
 
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
-              <h3 className="text-xl font-medium mb-6 text-gray-900">Əlaqə</h3>
+              <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">Əlaqə</h3>
               <div className="space-y-3">
                 <p className="text-gray-500 text-sm">Email: 21couturehouse@gmail.com</p>
                 <p className="text-gray-500 text-sm">Telefon: +994 10 717 21 10</p>
@@ -65,9 +65,9 @@ const Footer = () => {
             </div>
           </ScrollSlideIn>
 
-          <ScrollSlideIn direction="up" rootMargin="-100px" className='justify-self-end'>
+          <ScrollSlideIn direction="up" rootMargin="-100px" className='md:justify-self-end'>
             <div>
-              <h3 className="text-xl font-medium mb-6 text-gray-900">Bizi izləyin</h3>
+              <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">Bizi izləyin</h3>
               <div className="flex space-x-6">
                 {socialLinks.map((social) => (
                   <motion.a

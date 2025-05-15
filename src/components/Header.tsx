@@ -34,7 +34,7 @@ const Header = () => {
     { name: 'Kolleksiyalar', href: '#collections' },
     { name: 'Haqqımızda', href: '#about' },
     { name: 'Məhsullar', href: '#products' },
-    { name: 'Əlaqə', href: '#contact' },
+    // { name: 'Əlaqə', href: '#contact' },
   ];
 
   const mobileMenuVariants = {

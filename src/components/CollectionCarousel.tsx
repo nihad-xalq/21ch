@@ -144,7 +144,7 @@ const CollectionCarousel = ({
           setIsZoomed(false);
         }}
       >
-        {isLoading && <LoadingState />}
+        {/* {isLoading && <LoadingState />} */}
 
         {/* Progress bar */}
         {isAutoPlaying && !isLoading && (

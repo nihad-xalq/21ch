@@ -3,7 +3,7 @@
 import CollectionThumbnails from './CollectionThumbnails';
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import LoadingState from './LoadingState';
+// import LoadingState from './LoadingState';
 import Image from 'next/image';
 
 interface CollectionItem {

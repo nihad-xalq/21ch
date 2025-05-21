@@ -104,8 +104,14 @@ const Hero = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-3 bg-white text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white hover:border hover:border-white transition-colors duration-200 cursor-pointer"
+                        onClick={() => {
+                            const collectionsSection = document.getElementById('collections');
+                            if (collectionsSection) {
+                                collectionsSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
                     >
-                        Kolleksiyaya baxın
+                        Kolleksiyaya bax
                     </motion.button>
                 </motion.div>
             </div>

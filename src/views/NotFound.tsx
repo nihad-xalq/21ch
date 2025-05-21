@@ -47,7 +47,7 @@ const NotFound = () => {
                 >
                     <Link href="/">
                         <motion.button
-                            className="px-8 py-3 bg-black text-white hover:bg-gray-900 transition-colors"
+                            className="px-8 py-3 bg-black text-white hover:bg-gray-900 transition-colors cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >

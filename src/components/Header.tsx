@@ -127,33 +127,39 @@ const Header = () => {
                 className={`p-2 rounded-lg ${isScrolled || isMenuOpen ? 'text-gray-900' : 'text-black'}`}
                 aria-label="Menu"
               >
-                <div className="relative w-6 h-5">
+                <div className="relative w-7 h-6 flex flex-col justify-center items-center">
                   <motion.span
-                    className={`absolute top-0 left-0 w-full h-0.5 transform-gpu transition-colors ${isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
-                      }`}
+                    className={`absolute w-full h-[2px] rounded-full transform-gpu transition-colors ${
+                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                    }`}
                     animate={{
                       rotate: isMenuOpen ? 45 : 0,
-                      y: isMenuOpen ? 9 : 0,
+                      y: isMenuOpen ? 0 : -8,
+                      width: isMenuOpen ? '100%' : '80%',
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                   <motion.span
-                    className={`absolute top-[9px] left-0 w-full h-0.5 transition-colors ${isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
-                      }`}
+                    className={`absolute w-full h-[2px] rounded-full transition-colors ${
+                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                    }`}
                     animate={{
                       opacity: isMenuOpen ? 0 : 1,
-                      x: isMenuOpen ? 20 : 0
+                      x: isMenuOpen ? 20 : 0,
+                      width: "100%",
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                   <motion.span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 transform-gpu transition-colors ${isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
-                      }`}
+                    className={`absolute w-full h-[2px] rounded-full transform-gpu transition-colors ${
+                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                    }`}
                     animate={{
                       rotate: isMenuOpen ? -45 : 0,
-                      y: isMenuOpen ? -9 : 0,
+                      y: isMenuOpen ? 0 : 8,
+                      width: isMenuOpen ? '100%' : '60%',
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                 </div>
               </button>

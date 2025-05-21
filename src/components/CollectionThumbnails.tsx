@@ -59,8 +59,8 @@ const CollectionThumbnails = ({
                   width={0}
                   height={0}
                   sizes="100vw"
-                  fill
-                  className="object-cover"
+                  // fill
+                  className="w-full h-full object-cover"
                 />
                 <motion.div
                   className="absolute inset-0 bg-black/30"

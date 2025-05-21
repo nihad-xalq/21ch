@@ -223,7 +223,7 @@ const Homepage = () => {
             <div className="flex-1 w-full">
               <div className="relative rounded-lg overflow-hidden shadow-2xl border-0 min-h-[300px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.4181072485717!2d49.843066!3d40.37617900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307da592239c57%3A0xa3d62df816b9b970!2s24%20Bulbul%20Ave%2C%20Baku%201014!5e1!3m2!1sen!2saz!4v1747296329126!5m2!1sen!2saz"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3030.123456789012!2d49.8417597!3d40.3963904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d002416e5af%3A0xddcfb6085e3a09b6!2s21%20Couture%20House!5e1!3m2!1sen!2saz!4v1747814921921!5m2!1sen!2saz"
                   width="100%"
                   height="400"
                   allowFullScreen={true}
@@ -233,6 +233,7 @@ const Homepage = () => {
                   className="w-full h-[300px] md:h-[400px] border-0 rounded-lg"
                   title="21 Couture House Location"
                 ></iframe>
+
                 <div className="absolute top-4 right-4 bg-white/80 px-4 py-2 rounded-lg shadow text-xs sm:text-sm font-medium text-gray-800 flex items-center gap-2 pointer-events-none">
                   <svg className="w-4 h-4 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 9 7 9s7-3.75 7-9c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6a2.5 2.5 0 0 1 0 5.5z" />

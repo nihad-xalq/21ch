@@ -264,7 +264,7 @@ const CollectionCarousel = ({
 
         {/* Autoplay control */}
         <motion.button
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors flex items-center justify-center text-white z-10 opacity-0 group-hover:opacity-100 cursor-pointer"
           name="collection-carousel-autoplay"
           title="collection-carousel-autoplay"
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}

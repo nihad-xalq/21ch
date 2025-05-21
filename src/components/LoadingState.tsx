@@ -18,19 +18,19 @@ const LoadingState = () => {
                 <motion.span 
                     className="absolute w-full h-full border-2 border-black rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.2 }}
+                    animate={{ scale: 1, opacity: 0.4 }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0 }}
                 />
                 <motion.span 
                     className="absolute w-full h-full border-2 border-black rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.2 }}
+                    animate={{ scale: 1, opacity: 0.4 }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
                 />
                 <motion.span 
                     className="absolute w-full h-full border-2 border-black rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.2 }}
+                    animate={{ scale: 1, opacity: 0.4 }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
                 />
             </motion.div>

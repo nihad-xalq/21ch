@@ -30,11 +30,11 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">Qısa yollar</h3>
               <ul className="space-y-2 md:space-y-3">
-                {/* <li>
-                  <a href="/" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
-                    Ana səhifə
+                <li>
+                  <a href="#collections" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                    Kolleksiyalar
                   </a>
-                </li> */}
+                </li>
                 <li>
                   <a href="#about" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
                     Haqqımızda

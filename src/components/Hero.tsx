@@ -117,21 +117,20 @@ const Hero = () => {
             </div>
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
+            {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
                 {heroImages.map((_, index) => (
                     <motion.button
                         key={index}
                         name="heroImages-carousel-dot"
                         title="heroImages-carousel-dot"
                         onClick={() => setCurrentIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors cursor-pointer p-3 m-2 ${
-                            index === currentIndex ? 'bg-white' : 'bg-white/50'
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-colors cursor-pointer p-2  ${index === currentIndex ? 'bg-white' : 'bg-white/50'
+                            }`}
                         whileHover={{ scale: 1.5 }}
                         whileTap={{ scale: 0.9 }}
                     />
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 };

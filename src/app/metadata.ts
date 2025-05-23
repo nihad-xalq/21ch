@@ -12,6 +12,10 @@ export const defaultMetadata: Metadata = {
     address: false,
     telephone: false,
   },
+  metadataBase: new URL('https://21couture.az'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: '21 Couture House | Zəriflik Sənəti',
     description: 'Sənətkarlığa və incəliyə olan dərin hörmətdən doğan atelyemiz, əbədi ənənələri müasir baxışla birləşdirir.',

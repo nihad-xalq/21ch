@@ -10,8 +10,8 @@ import Categories from '@/components/Categories';
 import { collections } from '@/data/collections';
 import { useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
-import Image from 'next/image';
 import CMap from '@/components/CMap';
+import Image from 'next/image';
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);

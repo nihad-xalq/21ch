@@ -45,8 +45,8 @@ export const defaultMetadata: Metadata = {
       'max-snippet': -1,
     },
   } satisfies Metadata['robots'],
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-  },
+  // verification: {
+  //   google: 'your-google-verification-code',
+  //   yandex: 'your-yandex-verification-code',
+  // },
 }; 

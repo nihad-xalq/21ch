@@ -7,7 +7,7 @@ const CMap = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleOpenMap = () => {
-        window.open('https://goo.gl/maps/YOUR_LOCATION_LINK_HERE', '_blank');
+        window.open('https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA', '_blank');
     };
 
     return (

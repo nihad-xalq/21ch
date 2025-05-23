@@ -145,7 +145,9 @@ const Homepage = () => {
               >
                 <blockquote className="border-l-4 border-rose-300 pl-4 sm:pl-6 italic text-gray-500 text-base sm:text-lg font-light">
                   &quot;Moda gündəlik həyatın reallığı ilə yaşamaq üçün bir qalxandır.&quot;
-                  <span className="block mt-2 text-gray-400 text-sm sm:text-base font-normal">– Bill Cunningham</span>
+                  <span className="block mt-2 text-gray-600 text-sm sm:text-base font-normal">
+                    – Bill Cunningham
+                  </span>
                 </blockquote>
               </motion.div>
             </div>

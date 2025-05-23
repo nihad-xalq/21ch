@@ -124,8 +124,9 @@ const Hero = () => {
                         name="heroImages-carousel-dot"
                         title="heroImages-carousel-dot"
                         onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${index === currentIndex ? 'bg-white' : 'bg-white/50'
-                            }`}
+                        className={`w-3 h-3 rounded-full transition-colors cursor-pointer p-3 m-2 ${
+                            index === currentIndex ? 'bg-white' : 'bg-white/50'
+                        }`}
                         whileHover={{ scale: 1.5 }}
                         whileTap={{ scale: 0.9 }}
                     />

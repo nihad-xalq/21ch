@@ -57,15 +57,16 @@ const Categories = () => {
         >
           Məhsullarımız
         </motion.h2>
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all cursor-pointer ${activeCategory === category
+              className={`px-6 py-3 min-h-[44px] min-w-[44px] rounded-full transition-all cursor-pointer text-base ${
+                activeCategory === category
                 ? 'bg-black text-white'
                 : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                }`}
+              }`}
             >
               {category}
             </button>
@@ -96,12 +97,16 @@ const Categories = () => {
                   className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 {(product.isNew || product.isBestseller) && (
-                  <div className="absolute top-2 left-2">
+                  <div className="absolute top-2 left-2 flex gap-2">
                     {product.isNew && (
-                      <span className="inline-block bg-black text-white text-xs px-2 py-1 rounded">Yeni</span>
+                      <span className="inline-block bg-black text-white text-sm px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
+                        Yeni
+                      </span>
                     )}
                     {product.isBestseller && (
-                      <span className="inline-block bg-rose-500 text-white text-xs px-2 py-1 rounded ml-1">Bestseller</span>
+                      <span className="inline-block bg-rose-600 text-white text-sm font-medium px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
+                        Bestseller
+                      </span>
                     )}
                   </div>
                 )}

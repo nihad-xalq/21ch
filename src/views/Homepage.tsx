@@ -84,7 +84,7 @@ const Homepage = () => {
               style={{ y: aboutImageParallax.y, scale: aboutImageParallax.scale }}
               className="relative group"
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
                 <Image
                   src="/atelier.jpg"
                   alt="Atelier"
@@ -111,7 +111,7 @@ const Homepage = () => {
                 Atelyemizdə əl işləri ilə hazırlanmışdır.
               </div>
             </motion.div>
-            <div>
+            <div className="relative">
               <ScrollFadeIn>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight mb-6 sm:mb-8 text-gray-900 text-center md:text-left tracking-tight leading-tight">
                   21 Couture House haqqında
@@ -141,6 +141,7 @@ const Homepage = () => {
               <motion.div
                 ref={quoteParallax.ref}
                 style={{ y: quoteParallax.y }}
+                className="relative"
               >
                 <blockquote className="border-l-4 border-rose-300 pl-4 sm:pl-6 italic text-gray-500 text-base sm:text-lg font-light">
                   &quot;Moda gündəlik həyatın reallığı ilə yaşamaq üçün bir qalxandır.&quot;
@@ -152,9 +153,9 @@ const Homepage = () => {
         </section>
 
         {/* Categories Section */}
-        {/* <ScrollFadeIn> */}
-        <Categories />
-        {/* </ScrollFadeIn> */}
+        <ScrollFadeIn>
+          <Categories />
+        </ScrollFadeIn>
 
         {/* Contact Section */}
         {/* <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -207,51 +208,54 @@ const Homepage = () => {
           </ScrollScaleIn>
         </section> */}
 
-
-        <section
-          id="map"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
-        >
-          <div className="mb-10 text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3">
-              Atelyemizə Gəlin
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
-              Ünvanımızı xəritədə tapın və bizi ziyarət edin. Sizi 21 Couture House-da görməkdən məmnun olarıq!
-            </p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 w-full">
-              <CMap />
+        <ScrollFadeIn>
+          <section
+            id="map"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
+          >
+            <div className="mb-10 text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3">
+                Atelyemizə Gəlin
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+                Ünvanımızı xəritədə tapın və bizi ziyarət edin. Sizi 21 Couture House-da görməkdən məmnun olarıq!
+              </p>
             </div>
-            <div className="flex-1 w-full max-w-md mx-auto md:mx-0">
-              <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                <h3 className="text-lg font-semibold mb-2">Əlaqə Məlumatları</h3>
-                <ul className="text-gray-700 text-sm space-y-2 mb-4">
-                  <li>
-                    <span className="font-medium">Ünvan:</span> Bülbül prospekti 24, Bakı
-                  </li>
-                  <li>
-                    <span className="font-medium">Telefon:</span>{" "}
-                    <a href="tel:+994107172110" className="hover:underline text-pink-600">+994 10 717 21 10</a>
-                  </li>
-                  <li>
-                    <span className="font-medium">Email:</span>{" "}
-                    <a href="mailto:21couturehouse@gmail.com" className="hover:underline text-pink-600">21couturehouse@gmail.com</a>
-                  </li>
-                </ul>
-                <a
-                  href="https://www.google.com/maps/dir//40e+B%C3%BClb%C3%BCl+Ave,+Baku"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Yol Tarifi Al
-                </a>
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-1 w-full">
+                <CMap />
+              </div>
+              <div className="flex-1 w-full max-w-md mx-auto md:mx-0">
+                <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                  <h3 className="text-lg font-semibold mb-2">Əlaqə Məlumatları</h3>
+                  <ul className="text-gray-700 text-sm space-y-2 mb-4">
+                    <li>
+                      <span className="font-medium">Ünvan:</span> Bülbül prospekti 24, Bakı
+                    </li>
+                    <li>
+                      <span className="font-medium">Telefon:</span>{" "}
+                      <a href="tel:+994107172110" className="hover:underline text-pink-600">+994 10 717 21 10</a>
+                    </li>
+                    <li>
+                      <span className="font-medium">Email:</span>{" "}
+                      <a href="mailto:21couturehouse@gmail.com" className="hover:underline text-pink-600">21couturehouse@gmail.com</a>
+                    </li>
+                  </ul>
+                  <a
+                    href="https://www.google.com/maps/dir//40e+B%C3%BClb%C3%BCl+Ave,+Baku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+                  >
+                    Yol Tarifi Al
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollFadeIn>
+
+
       </motion.div>
     </>
   );

@@ -90,7 +90,7 @@ const Categories = () => {
             >
               <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src="/collections/6.jpg"
+                  src="/collections/6.webp"
                   alt={product.name}
                   width={500}
                   height={500}

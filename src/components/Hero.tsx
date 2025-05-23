@@ -13,7 +13,7 @@ const Hero = () => {
     const [, setLoadedImages] = useState<Set<number>>(new Set());
 
     // Array of hero images
-    const heroImages = Array.from({ length: 4 }, (_, i) => `/hero/hero-${i + 1}.jpg`);
+    const heroImages = Array.from({ length: 4 }, (_, i) => `/hero/hero-${i + 1}.webp`);
 
     // Preload images
     useEffect(() => {

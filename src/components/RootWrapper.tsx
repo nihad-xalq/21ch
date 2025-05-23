@@ -6,6 +6,7 @@ import SiteLoader from '@/components/SiteLoader';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Main from '@/components/Main';
+import BackToTop from '@/components/BackToTop';
 import { useEffect } from 'react';
 
 const RootContent = ({ children }: { children: React.ReactNode }) => {
@@ -25,6 +26,7 @@ const RootContent = ({ children }: { children: React.ReactNode }) => {
       <Header />
       <Main>{children}</Main>
       <Footer />
+      <BackToTop />
     </>
   );
 };

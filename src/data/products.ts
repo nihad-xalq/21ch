@@ -11,37 +11,29 @@ export interface Product {
 export const products: Product[] = [
   // Köynəklər
   {
-    id: 't1',
-    name: 'Sadə Pambıq Köynək',
+    id: "t1",
+    name: "Sadə Pambıq Köynək",
     price: 29.99,
-    category: 'T-Shirts',
-    image: '/products/tshirt-1.jpg',
-    isBestseller: true
+    category: "T-Shirts",
+    image: "/products/tshirt-1.jpg",
+    isBestseller: true,
   },
   {
-    id: 't2',
-    name: 'Orqanik Pambıq V-Yaxa',
+    id: "t2",
+    name: "Orqanik Pambıq V-Yaxa",
     price: 34.99,
-    category: 'T-Shirts',
-    image: '/products/tshirt-2.jpg'
+    category: "T-Shirts",
+    image: "/products/tshirt-2.jpg",
   },
-  // {
-  //   id: 't3',
-  //   name: 'Zolaqlı Uzunqol Köynək',
-  //   price: 39.99,
-  //   category: 'T-Shirts',
-  //   image: '/products/tshirt-3.jpg'
-  // },
-  
 
   // Donlar
   {
-    id: 'd1',
-    name: 'Güllü Yay Donu',
+    id: "d1",
+    name: "Güllü Yay Donu",
     price: 89.99,
-    category: 'Dresses',
-    image: '/products/dress-1.jpg',
-    isBestseller: true
+    category: "Dresses",
+    image: "/products/dress-1.jpg",
+    isBestseller: true,
   },
   // {
   //   id: 'd2',
@@ -66,32 +58,24 @@ export const products: Product[] = [
   //   isNew: true
   // },
 
-
   // Gödəkçələr
   {
-    id: 'jk1',
-    name: 'Dəri Biker Gödəkçə',
+    id: "jk1",
+    name: "Dəri Biker Gödəkçə",
     price: 199.99,
-    category: 'Jackets',
-    image: '/products/jacket-1.jpg',
-    isBestseller: true
+    category: "Jackets",
+    image: "/products/jacket-1.jpg",
+    isBestseller: true,
   },
 
   // Svitrlər
   {
-    id: 's1',
-    name: 'Kaşmir Pullover',
+    id: "s1",
+    name: "Kaşmir Pullover",
     price: 159.99,
-    category: 'Sweaters',
-    image: '/products/sweater-1.jpg',
-    isBestseller: true
-  },
-  {
-    id: 's2',
-    name: 'Yun Kardiqan',
-    price: 119.99,
-    category: 'Sweaters',
-    image: '/products/sweater-2.jpg'
+    category: "Sweaters",
+    image: "/products/sweater-1.jpg",
+    isBestseller: true,
   },
   // {
   //   id: 's3',
@@ -111,29 +95,22 @@ export const products: Product[] = [
 
   // Ətəklər
   {
-    id: 'sk1',
-    name: 'Büzməli Midi Ətək',
+    id: "sk1",
+    name: "Büzməli Midi Ətək",
     price: 69.99,
-    category: 'Skirts',
-    image: '/products/skirt-1.jpg',
-    isBestseller: true
+    category: "Skirts",
+    image: "/products/skirt-1.jpg",
+    isBestseller: true,
   },
 
   // Kostyumlar
   {
-    id: 'su1',
-    name: 'Klassik Biznes Kostyumu',
+    id: "su1",
+    name: "Klassik Biznes Kostyumu",
     price: 299.99,
-    category: 'Suits',
-    image: '/products/suit-1.jpg',
-    isBestseller: true
-  },
-  {
-    id: 'su2',
-    name: 'Axşam Smokin',
-    price: 399.99,
-    category: 'Suits',
-    image: '/products/suit-2.jpg'
+    category: "Suits",
+    image: "/products/suit-1.jpg",
+    isBestseller: true,
   },
   // {
   //   id: 'su3',
@@ -145,12 +122,12 @@ export const products: Product[] = [
 
   // Aktiv geyimlər
   {
-    id: 'a1',
-    name: 'Performans Leqqinləri',
+    id: "a1",
+    name: "Performans Leqqinləri",
     price: 59.99,
-    category: 'Activewear',
-    image: '/products/activewear-1.jpg',
-    isBestseller: true
+    category: "Activewear",
+    image: "/products/activewear-1.jpg",
+    isBestseller: true,
   },
   // {
   //   id: 'a2',
@@ -177,29 +154,22 @@ export const products: Product[] = [
 
   // Aksesuarlar
   {
-    id: 'ac1',
-    name: 'Dəri Kəmər',
+    id: "ac1",
+    name: "Dəri Kəmər",
     price: 39.99,
-    category: 'Accessories',
-    image: '/products/accessory-1.jpg',
-    isBestseller: true
-  },
-  {
-    id: 'ac2',
-    name: 'İpək Şərf',
-    price: 29.99,
-    category: 'Accessories',
-    image: '/products/accessory-2.jpg'
+    category: "Accessories",
+    image: "/products/accessory-1.jpg",
+    isBestseller: true,
   },
 
   // Ayaqqabılar
   {
-    id: 'sh1',
-    name: 'Klassik Dəri Ayaqqabı',
+    id: "sh1",
+    name: "Klassik Dəri Ayaqqabı",
     price: 119.99,
-    category: 'Shoes',
-    image: '/products/shoes-1.jpg',
-    isBestseller: true
+    category: "Shoes",
+    image: "/products/shoes-1.jpg",
+    isBestseller: true,
   },
   // {
   //   id: 'sh2',

@@ -40,7 +40,7 @@ export default function RootLayout({
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://21couture.az" />
-        <meta property="og:image" content="https://21couture.az/og-image.jpg" />
+        <meta property="og:image" content="https://21couture.az/og-image.webp" />
         <meta property="og:locale" content="az_AZ" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="21 Couture House" />
@@ -48,7 +48,7 @@ export default function RootLayout({
           name="twitter:description"
           content="Əl işləri ilə hazırlanmış dəbdəbəli geyimlər və yeni kolleksiyalar. 21 Couture House ilə tanış olun."
         />
-        <meta name="twitter:image" content="https://21couture.az/og-image.jpg" />
+        <meta name="twitter:image" content="https://21couture.az/og-image.webp" />
 
         <link rel="canonical" href="https://21couture.az" />
         <link rel="alternate" hrefLang="az" href="https://21couture.az" />
@@ -62,27 +62,27 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link
           rel="preload"
-          href="/hero/hero-1.jpg"
+          href="/hero/hero-1.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
         />
         <link
           rel="preload"
-          href="/hero/hero-2.jpg"
+          href="/hero/hero-2.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
         />
         <link
           rel="preload"
-          href="/hero/hero-3.jpg"
+          href="/hero/hero-3.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
         />
         <link
           rel="preload"
-          href="/hero/hero-4.jpg"
+          href="/hero/hero-4.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
         />
       </head>
       <body className={montserrat.className}>

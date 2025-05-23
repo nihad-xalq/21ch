@@ -23,7 +23,7 @@ export const defaultMetadata: Metadata = {
     siteName: '21 Couture House',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.webp',
         width: 1200,
         height: 630,
         alt: '21 Couture House - Yüksək dəb və zəriflik',
@@ -36,7 +36,7 @@ export const defaultMetadata: Metadata = {
     card: 'summary_large_image',
     title: '21 Couture House | Zəriflik Sənəti',
     description: 'Sənətkarlığa və incəliyə olan dərin hörmətdən doğan atelyemiz, əbədi ənənələri müasir baxışla birləşdirir.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.webp'],
   },
   robots: {
     index: true,

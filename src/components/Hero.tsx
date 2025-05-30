@@ -56,7 +56,7 @@ const Hero = () => {
     }, [heroImages.length]);
 
     return (
-        <div className="relative h-[40vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden">
+        <section className="relative h-[40vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden">
             {/* Loading placeholder */}
             {isLoading && (
                 <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
@@ -131,7 +131,7 @@ const Hero = () => {
                     />
                 ))}
             </div> */}
-        </div>
+        </section>
     );
 };
 

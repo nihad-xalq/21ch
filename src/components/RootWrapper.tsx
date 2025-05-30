@@ -3,10 +3,10 @@
 import { LoadingProvider } from '@/context/LoadingContext';
 import { useLoading } from '@/context/LoadingContext';
 import SiteLoader from '@/components/SiteLoader';
+import BackToTop from '@/components/BackToTop';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Main from '@/components/Main';
-import BackToTop from '@/components/BackToTop';
 import { useEffect } from 'react';
 
 const RootContent = ({ children }: { children: React.ReactNode }) => {

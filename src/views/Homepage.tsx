@@ -156,7 +156,7 @@ const Homepage = () => {
 
         {/* Categories Section */}
         {/* <ScrollFadeIn> */}
-          <Categories />
+        <Categories />
         {/* </ScrollFadeIn> */}
 
         {/* Contact Section */}
@@ -256,7 +256,6 @@ const Homepage = () => {
             </div>
           </section>
         </ScrollFadeIn>
-
 
       </motion.div>
     </>

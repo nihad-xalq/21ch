@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
 import CMap from '@/components/CMap';
 import Image from 'next/image';
+import { videosArray } from '@/data/videos';
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +47,54 @@ const Homepage = () => {
       >
         {/* Hero Section */}
         <Hero />
+
+        {/* Video Gallery section */}
+        <ScrollFadeIn>
+          <section id="video-gallery" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4">
+                Video Qalereya
+              </h2>
+              {/* <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+                2025 Kolleksiyamızdan seçilmiş videolar
+              </p> */}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {videosArray.map((video, index) => (
+                <motion.div
+                  key={video.id}
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.2,
+                    ease: "easeOut"
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  <a
+                    href={video.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block w-full"
+                  >
+                    <video
+                      src={video.url}
+                      controls={true}
+                      autoPlay={true}
+                      muted
+                      loop
+                      controlsList="nodownload"
+                      className="w-full rounded-2xl shadow-lg mb-3 bg-black transition-transform duration-400 group-hover:scale-105"
+                    />
+                  </a>
+                  <p className="text-gray-700 text-sm text-center">{video.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+        </ScrollFadeIn>
 
         {/* Collections Section */}
         <section id="collections" className="bg-gray-50 py-16 sm:py-24">

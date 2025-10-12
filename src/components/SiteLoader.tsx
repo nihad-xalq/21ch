@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface SiteLoaderProps {
   isLoading?: boolean;
@@ -23,7 +23,7 @@ const SiteLoader = ({ isLoading = true }: SiteLoaderProps) => {
     } else {
       // Simulate loading progress
       const interval = setInterval(() => {
-        setProgress(prev => {
+        setProgress((prev) => {
           const next = prev + Math.random() * 15;
           return next > 90 ? 90 : next; // Cap at 90% until actually loaded
         });
@@ -80,7 +80,7 @@ const SiteLoader = ({ isLoading = true }: SiteLoaderProps) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         />
-        
+
         {/* Bottom Right Corner */}
         <motion.div
           className="absolute bottom-0 right-0 w-24 h-24 border-r border-b border-black/20"
@@ -93,4 +93,4 @@ const SiteLoader = ({ isLoading = true }: SiteLoaderProps) => {
   );
 };
 
-export default SiteLoader; 
+export default SiteLoader;

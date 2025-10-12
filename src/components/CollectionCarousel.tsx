@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import CollectionThumbnails from './CollectionThumbnails';
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import CollectionThumbnails from "./CollectionThumbnails";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // import LoadingState from './LoadingState';
-import Image from 'next/image';
+import Image from "next/image";
 
 interface CollectionItem {
   id: number;
@@ -21,7 +21,7 @@ interface CollectionCarouselProps {
 
 const CollectionCarousel = ({
   items,
-  autoPlayInterval = 5000
+  autoPlayInterval = 5000,
 }: CollectionCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -35,24 +35,24 @@ const CollectionCarousel = ({
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
+      opacity: 0,
+    }),
   };
 
   const overlayVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
-    hover: { y: -10 }
+    hover: { y: -10 },
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -62,7 +62,8 @@ const CollectionCarousel = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isZoomed) return;
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - left) / width;
     const y = (e.clientY - top) / height;
     setMousePosition({ x, y });
@@ -74,7 +75,7 @@ const CollectionCarousel = ({
       const imagesToLoad = [
         currentIndex,
         (currentIndex + 1) % items.length,
-        (currentIndex - 1 + items.length) % items.length
+        (currentIndex - 1 + items.length) % items.length,
       ];
 
       const loadImage = (index: number) => {
@@ -82,7 +83,7 @@ const CollectionCarousel = ({
           const img = new window.Image();
           img.src = items[index].image;
           img.onload = () => {
-            setLoadedImages(prev => new Set([...prev, index]));
+            setLoadedImages((prev) => new Set([...prev, index]));
             resolve(true);
           };
           img.onerror = () => resolve(false);
@@ -98,27 +99,30 @@ const CollectionCarousel = ({
   }, [currentIndex, items]);
 
   // Modify the paginate function to handle loading state
-  const paginate = useCallback((newDirection: number) => {
-    if (isZoomed || isLoading) return;
-    setDirection(newDirection);
-    setCurrentIndex((prevIndex) => {
-      let nextIndex = prevIndex + newDirection;
-      if (nextIndex < 0) nextIndex = items.length - 1;
-      if (nextIndex >= items.length) nextIndex = 0;
-      return nextIndex;
-    });
-  }, [items.length, isZoomed, isLoading]);
+  const paginate = useCallback(
+    (newDirection: number) => {
+      if (isZoomed || isLoading) return;
+      setDirection(newDirection);
+      setCurrentIndex((prevIndex) => {
+        let nextIndex = prevIndex + newDirection;
+        if (nextIndex < 0) nextIndex = items.length - 1;
+        if (nextIndex >= items.length) nextIndex = 0;
+        return nextIndex;
+      });
+    },
+    [items.length, isZoomed, isLoading]
+  );
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') paginate(-1);
-      if (e.key === 'ArrowRight') paginate(1);
-      if (e.key === 'Space') setIsAutoPlaying(prev => !prev);
+      if (e.key === "ArrowLeft") paginate(-1);
+      if (e.key === "ArrowRight") paginate(1);
+      if (e.key === "Space") setIsAutoPlaying((prev) => !prev);
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [paginate]);
 
   // Autoplay
@@ -155,7 +159,7 @@ const CollectionCarousel = ({
             transition={{
               duration: autoPlayInterval / 1000,
               ease: "linear",
-              repeat: Infinity
+              repeat: Infinity,
             }}
           />
         )}
@@ -170,7 +174,7 @@ const CollectionCarousel = ({
             exit="exit"
             transition={{
               x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 }
+              opacity: { duration: 0.2 },
             }}
             drag={!isZoomed && !isLoading && "x"}
             dragConstraints={{ left: 0, right: 0 }}
@@ -184,22 +188,28 @@ const CollectionCarousel = ({
                 paginate(-1);
               }
             }}
-            className={`absolute w-full h-full cursor-${isZoomed ? 'zoom-out' : 'grab'} active:cursor-${isZoomed ? 'zoom-out' : 'grabbing'}`}
+            className={`absolute w-full h-full cursor-${
+              isZoomed ? "zoom-out" : "grab"
+            } active:cursor-${isZoomed ? "zoom-out" : "grabbing"}`}
             onClick={() => !isLoading && setIsZoomed(!isZoomed)}
             onMouseMove={handleMouseMove}
           >
             <div className="relative w-full h-full">
               <motion.div
                 className="relative w-full h-full"
-                animate={isZoomed ? {
-                  scale: 2,
-                  x: (mousePosition.x - 0.5) * -500,
-                  y: (mousePosition.y - 0.5) * -500
-                } : {
-                  scale: 1,
-                  x: 0,
-                  y: 0
-                }}
+                animate={
+                  isZoomed
+                    ? {
+                        scale: 2,
+                        x: (mousePosition.x - 0.5) * -500,
+                        y: (mousePosition.y - 0.5) * -500,
+                      }
+                    : {
+                        scale: 1,
+                        x: 0,
+                        y: 0,
+                      }
+                }
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
                 <Image
@@ -213,7 +223,11 @@ const CollectionCarousel = ({
                   priority
                 />
               </motion.div>
-              <div className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isZoomed ? 'opacity-0' : 'group-hover:opacity-20'}`} />
+              <div
+                className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${
+                  isZoomed ? "opacity-0" : "group-hover:opacity-20"
+                }`}
+              />
               {!isZoomed && (
                 <motion.div
                   variants={overlayVariants}
@@ -223,9 +237,15 @@ const CollectionCarousel = ({
                   transition={{ duration: 0.5 }}
                   className="absolute bottom-0 left-0 right-0 p-8 text-white bg-gradient-to-t from-black/70"
                 >
-                  <h3 className="text-2xl font-light mb-2">{currentItem.title}</h3>
-                  <p className="text-sm opacity-80">{currentItem.description}</p>
-                  <p className="text-sm mt-2 font-light">{currentItem.category}</p>
+                  <h3 className="text-2xl font-light mb-2">
+                    {currentItem.title}
+                  </h3>
+                  <p className="text-sm opacity-80">
+                    {currentItem.description}
+                  </p>
+                  <p className="text-sm mt-2 font-light">
+                    {currentItem.category}
+                  </p>
                 </motion.div>
               )}
             </div>
@@ -243,8 +263,18 @@ const CollectionCarousel = ({
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </motion.button>
             <motion.button
@@ -255,8 +285,18 @@ const CollectionCarousel = ({
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </motion.button>
           </>
@@ -272,13 +312,38 @@ const CollectionCarousel = ({
           whileTap={{ scale: 0.9 }}
         >
           {isAutoPlaying ? (
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           ) : (
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           )}
         </motion.button>
@@ -294,8 +359,9 @@ const CollectionCarousel = ({
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);
               }}
-              className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${index === currentIndex ? 'bg-white' : 'bg-white/50'
-                }`}
+              className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${
+                index === currentIndex ? "bg-white" : "bg-white/50"
+              }`}
               whileHover={{ scale: 1.5 }}
               whileTap={{ scale: 0.9 }}
             />
@@ -309,7 +375,7 @@ const CollectionCarousel = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          {isZoomed ? 'Click to zoom out' : 'Click to zoom in'}
+          {isZoomed ? "Click to zoom out" : "Click to zoom in"}
         </motion.div>
       </div>
 
@@ -329,4 +395,4 @@ const CollectionCarousel = ({
   );
 };
 
-export default CollectionCarousel; 
+export default CollectionCarousel;

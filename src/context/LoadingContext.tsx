@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback } from "react";
 
 interface LoadingContextType {
   isLoading: boolean;
@@ -10,7 +10,11 @@ interface LoadingContextType {
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
-export const LoadingProvider = ({ children }: { children: React.ReactNode }) => {
+export const LoadingProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const startLoading = useCallback(() => {
@@ -31,7 +35,7 @@ export const LoadingProvider = ({ children }: { children: React.ReactNode }) => 
 export const useLoading = () => {
   const context = useContext(LoadingContext);
   if (context === undefined) {
-    throw new Error('useLoading must be used within a LoadingProvider');
+    throw new Error("useLoading must be used within a LoadingProvider");
   }
   return context;
-}; 
+};

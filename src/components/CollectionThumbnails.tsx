@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface CollectionItem {
   id: number;
@@ -22,7 +22,7 @@ const CollectionThumbnails = ({
   items,
   currentIndex,
   onSelect,
-  loadedImages
+  loadedImages,
 }: CollectionThumbnailsProps) => {
   return (
     <div className="relative mt-4 px-4">
@@ -31,7 +31,11 @@ const CollectionThumbnails = ({
           <motion.div
             key={item.id}
             className={`relative w-24 h-32 flex-shrink-0 cursor-pointer overflow-hidden rounded-lg 
-              ${index === currentIndex ? 'ring-2 ring-white' : 'ring-1 ring-white/20'}`}
+              ${
+                index === currentIndex
+                  ? "ring-2 ring-white"
+                  : "ring-1 ring-white/20"
+              }`}
             onClick={() => onSelect(index)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -47,7 +51,7 @@ const CollectionThumbnails = ({
                   transition={{
                     duration: 1,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
                   }}
                 />
               </div>
@@ -77,4 +81,4 @@ const CollectionThumbnails = ({
   );
 };
 
-export default CollectionThumbnails; 
+export default CollectionThumbnails;

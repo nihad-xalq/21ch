@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { MdKeyboardArrowUp } from 'react-icons/md';
-import { useEffect, useState } from 'react';
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,10 +17,10 @@ const BackToTop = () => {
 
   // Set up scroll event listener
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
@@ -28,7 +28,7 @@ const BackToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -50,9 +50,10 @@ const BackToTop = () => {
         group
         z-50
         cursor-pointer
-        ${isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-12 pointer-events-none'
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-12 pointer-events-none"
         }
       `}
       aria-label="Back to top"
@@ -62,4 +63,4 @@ const BackToTop = () => {
   );
 };
 
-export default BackToTop; 
+export default BackToTop;

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Logo from './Logo';
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,27 +14,27 @@ const Header = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
 
   const menuItems = [
-    { name: 'Kolleksiyalar', href: '#collections' },
-    { name: 'Haqqımızda', href: '#about' },
-    { name: 'Məhsullar', href: '#products' },
-    // { name: 'Əlaqə', href: '#contact' },
+    { name: "Collections", href: "#collections-section" },
+    { name: "About us", href: "#about" },
+    { name: "Products", href: "#products" },
+    // { name: 'Contact', href: '#contact' },
   ];
 
   const mobileMenuVariants = {
@@ -43,17 +43,17 @@ const Header = () => {
       y: "-100%",
       transition: {
         duration: 0.3,
-        ease: [0.4, 0, 0.2, 1]
-      }
+        ease: [0.4, 0, 0.2, 1],
+      },
     },
     open: {
       opacity: 1,
       y: "0%",
       transition: {
         duration: 0.4,
-        ease: [0.4, 0, 0.2, 1]
-      }
-    }
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
   };
 
   const handleNavClick = (href: string) => {
@@ -62,11 +62,12 @@ const Header = () => {
     if (element) {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -74,8 +75,9 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed w-full z-40 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white shadow-sm' : 'bg-transparent'
-          }`}
+        className={`fixed w-full z-40 transition-all duration-300 ${
+          isScrolled || isMenuOpen ? "bg-white shadow-sm" : "bg-transparent"
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -88,8 +90,9 @@ const Header = () => {
             >
               <Link
                 href="/"
-                className={`text-2xl font-light tracking-wider ${isScrolled || isMenuOpen ? 'text-black' : 'text-black'
-                  }`}
+                className={`text-2xl font-light tracking-wider ${
+                  isScrolled || isMenuOpen ? "text-black" : "text-black"
+                }`}
               >
                 <Logo />
               </Link>
@@ -106,8 +109,9 @@ const Header = () => {
                 >
                   <button
                     onClick={() => handleNavClick(item.href)}
-                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity cursor-pointer ${isScrolled ? 'text-gray-900' : 'text-black'
-                      }`}
+                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity cursor-pointer ${
+                      isScrolled ? "text-gray-900" : "text-black"
+                    }`}
                   >
                     {item.name}
                   </button>
@@ -124,24 +128,26 @@ const Header = () => {
             >
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 rounded-lg ${isScrolled || isMenuOpen ? 'text-gray-900' : 'text-black'}`}
+                className={`p-2 rounded-lg ${
+                  isScrolled || isMenuOpen ? "text-gray-900" : "text-black"
+                }`}
                 aria-label="Menu"
               >
                 <div className="relative w-7 h-6 flex flex-col justify-center items-center">
                   <motion.span
                     className={`absolute w-full h-[2px] rounded-full transform-gpu transition-colors ${
-                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                      isScrolled || isMenuOpen ? "bg-gray-900" : "bg-black"
                     }`}
                     animate={{
                       rotate: isMenuOpen ? 45 : 0,
                       y: isMenuOpen ? 0 : -8,
-                      width: isMenuOpen ? '100%' : '80%',
+                      width: isMenuOpen ? "100%" : "80%",
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                   <motion.span
                     className={`absolute w-full h-[2px] rounded-full transition-colors ${
-                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                      isScrolled || isMenuOpen ? "bg-gray-900" : "bg-black"
                     }`}
                     animate={{
                       opacity: isMenuOpen ? 0 : 1,
@@ -152,12 +158,12 @@ const Header = () => {
                   />
                   <motion.span
                     className={`absolute w-full h-[2px] rounded-full transform-gpu transition-colors ${
-                      isScrolled || isMenuOpen ? 'bg-gray-900' : 'bg-black'
+                      isScrolled || isMenuOpen ? "bg-gray-900" : "bg-black"
                     }`}
                     animate={{
                       rotate: isMenuOpen ? -45 : 0,
                       y: isMenuOpen ? 0 : 8,
-                      width: isMenuOpen ? '100%' : '60%',
+                      width: isMenuOpen ? "100%" : "60%",
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
@@ -204,4 +210,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

@@ -40,7 +40,7 @@ const Footer = () => {
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
               <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">
-                Qısa yollar
+                Quick links
               </h3>
               <ul className="space-y-2 md:space-y-3">
                 <li>
@@ -48,7 +48,7 @@ const Footer = () => {
                     href="#collections"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
-                    Kolleksiyalar
+                    Collections
                   </a>
                 </li>
                 <li>
@@ -56,7 +56,7 @@ const Footer = () => {
                     href="#about"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
-                    Haqqımızda
+                    About us
                   </a>
                 </li>
                 <li>
@@ -64,12 +64,12 @@ const Footer = () => {
                     href="#products"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
-                    Məhsullar
+                    Products
                   </a>
                 </li>
                 {/* <li>
                   <a href="#contact" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
-                    Əlaqə
+                    Contact
                   </a>
                 </li> */}
               </ul>
@@ -79,17 +79,17 @@ const Footer = () => {
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
               <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">
-                Əlaqə
+                Contact
               </h3>
               <div className="space-y-3">
                 <p className="text-gray-500 text-sm">
                   Email: 21couturehouse@gmail.com
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Telefon: +994 10 717 21 10
+                  Phone: +994 10 717 21 10 (Azerbaijan)
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Ünvan: Bülbül prospekti 24, Bakı
+                  Address: Bulbul Avenue 24, Baku
                 </p>
               </div>
             </div>
@@ -98,7 +98,7 @@ const Footer = () => {
           {/* <ScrollSlideIn direction="up" rootMargin="-100px" className='md:justify-self-end'> */}
           <div>
             <h3 className="text-xl font-medium mb-2 md:mb-6 text-gray-900">
-              Bizi izləyin
+              Follow us
             </h3>
             <div className="flex space-x-6">
               {socialLinks.map((social) => (
@@ -124,7 +124,7 @@ const Footer = () => {
         <ScrollFadeIn delay={0.2} rootMargin="-50px">
           <div className="mt-12 pt-8 border-t border-gray-100 text-center">
             <p className="text-gray-500 text-sm">
-              {currentYear} &copy; 21 Couture House. Bütün hüquqlar qorunur.
+              {currentYear} &copy; 21 Couture House. All rights reserved.
             </p>
           </div>
         </ScrollFadeIn>

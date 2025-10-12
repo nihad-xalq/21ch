@@ -1,13 +1,13 @@
-import RootWrapper from '@/components/RootWrapper';
-import { Montserrat } from 'next/font/google';
-import { defaultMetadata } from './metadata';
-import type { Metadata } from 'next';
-import './globals.css';
+import RootWrapper from "@/components/RootWrapper";
+import { Montserrat } from "next/font/google";
+import { defaultMetadata } from "./metadata";
+import type { Metadata } from "next";
+import "./globals.css";
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = defaultMetadata;
@@ -40,7 +40,10 @@ export default function RootLayout({
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://21couture.az" />
-        <meta property="og:image" content="https://21couture.az/og-image.webp" />
+        <meta
+          property="og:image"
+          content="https://21couture.az/og-image.webp"
+        />
         <meta property="og:locale" content="az_AZ" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="21 Couture House" />
@@ -48,15 +51,27 @@ export default function RootLayout({
           name="twitter:description"
           content="Əl işləri ilə hazırlanmış dəbdəbəli geyimlər və yeni kolleksiyalar. 21 Couture House ilə tanış olun."
         />
-        <meta name="twitter:image" content="https://21couture.az/og-image.webp" />
+        <meta
+          name="twitter:image"
+          content="https://21couture.az/og-image.webp"
+        />
 
         <link rel="canonical" href="https://21couture.az" />
         <link rel="alternate" hrefLang="az" href="https://21couture.az" />
 
         {/* Favicon */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         {/* <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> */}
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* Preload critical assets */}

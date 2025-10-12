@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { LoadingProvider } from '@/context/LoadingContext';
-import { useLoading } from '@/context/LoadingContext';
-import SiteLoader from '@/components/SiteLoader';
-import BackToTop from '@/components/BackToTop';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Main from '@/components/Main';
-import { useEffect } from 'react';
+import { LoadingProvider } from "@/context/LoadingContext";
+import { useLoading } from "@/context/LoadingContext";
+import SiteLoader from "@/components/SiteLoader";
+import BackToTop from "@/components/BackToTop";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Main from "@/components/Main";
+import { useEffect } from "react";
 
 const RootContent = ({ children }: { children: React.ReactNode }) => {
   const { isLoading, stopLoading } = useLoading();
@@ -31,10 +31,14 @@ const RootContent = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default function RootWrapper({ children }: { children: React.ReactNode }) {
+export default function RootWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <LoadingProvider>
       <RootContent>{children}</RootContent>
     </LoadingProvider>
   );
-} 
+}

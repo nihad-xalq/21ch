@@ -1,12 +1,12 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/private/', '/admin/'],
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/private/", "/admin/"],
     },
-    sitemap: 'https://21couture.az/sitemap.xml',
+    sitemap: "https://21couturehouse.az/sitemap.xml",
   };
-} 
+}

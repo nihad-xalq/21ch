@@ -7,12 +7,12 @@ import ScrollFadeIn from "@/components/animations/ScrollFadeIn";
 import { motion, AnimatePresence } from "framer-motion";
 import LoadingState from "@/components/LoadingState";
 import Categories from "@/components/Categories";
-import { collections } from "@/data/collections";
+import { collections } from "@/data/old-collections";
+import { videosArray } from "@/data/videos";
 import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import CMap from "@/components/CMap";
 import Image from "next/image";
-import { videosArray } from "@/data/videos";
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);

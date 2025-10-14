@@ -1,18 +1,18 @@
 "use client";
 
 import { useParallax } from "@/hooks/useParallax";
-import { products } from "@/data/products";
+import { collections } from "@/data/collections";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 
-const categories = ["All", "Dresses", "Jackets", "Skirts"];
+const categories = ["All", "All long", "The Midi edit", "Short edition"];
 
 const categoryMapping = {
   All: "All",
-  Dresses: "Dresses",
-  Jackets: "Jackets",
-  Skirts: "Skirts",
+  "All long": "Alllong",
+  "The Midi edit": "TheMidiedit",
+  "Short edition": "Short edition",
 };
 
 const Categories = () => {
@@ -33,12 +33,12 @@ const Categories = () => {
     useParallax({ offset: 20, direction: "down" }),
   ];
 
-  const filteredProducts =
+  const filteredCollections =
     activeCategory === "All"
-      ? products
-      : products.filter(
-          (product) =>
-            product.category ===
+      ? collections
+      : collections.filter(
+          (collection) =>
+            collection.category ===
             categoryMapping[activeCategory as keyof typeof categoryMapping]
         );
 
@@ -53,7 +53,7 @@ const Categories = () => {
           style={{ y: titleParallax.y }}
           className="text-3xl font-bold text-center mb-8"
         >
-          Our Products
+          Collections
         </motion.h2>
         <div className="flex flex-wrap gap-4 justify-center">
           {categories.map((category) => (
@@ -73,12 +73,12 @@ const Categories = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredProducts.map((product, index) => {
+        {filteredCollections.map((collection, index) => {
           const parallax = parallaxRefs[index % parallaxRefs.length];
 
           return (
             <motion.div
-              key={product.id}
+              key={collection.id}
               ref={parallax.ref}
               style={{ y: parallax.y }}
               className="group relative"
@@ -89,19 +89,19 @@ const Categories = () => {
               <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src="/collections/6.webp"
-                  alt={product.name}
+                  alt={collection.name}
                   width={500}
                   height={500}
                   className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                {(product.isNew || product.isBestseller) && (
+                {(collection.isNew || collection.isBestseller) && (
                   <div className="absolute top-2 left-2 flex gap-2">
-                    {product.isNew && (
+                    {collection.isNew && (
                       <span className="inline-block bg-black text-white text-sm px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
                         New
                       </span>
                     )}
-                    {product.isBestseller && (
+                    {collection.isBestseller && (
                       <span className="inline-block bg-rose-600 text-white text-sm font-medium px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
                         Best Seller
                       </span>
@@ -111,7 +111,7 @@ const Categories = () => {
               </div>
               <div className="mt-4">
                 <h3 className="text-sm font-medium text-gray-900 text-center">
-                  {product.name}
+                  {collection.name}
                 </h3>
               </div>
             </motion.div>

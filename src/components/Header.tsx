@@ -76,7 +76,9 @@ const Header = () => {
     <>
       <header
         className={`fixed w-full z-40 transition-all duration-300 ${
-          isScrolled || isMenuOpen ? "bg-white shadow-sm" : "bg-transparent"
+          isScrolled || isMenuOpen
+            ? "bg-white shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

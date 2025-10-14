@@ -60,7 +60,7 @@ const Hero = () => {
   }, [heroImages.length]);
 
   return (
-    <section className="relative h-[40vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
+    <section className="relative h-[80vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
       {/* Loading placeholder */}
       {isLoading && (
         <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
@@ -109,19 +109,16 @@ const Hero = () => {
             Discover our new collection
           </p>
           <motion.button
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-sm bg-white text-black text-sm tracking-wider hover:bg-black hover:text-white hover:border hover:border-white transition-colors duration-200 cursor-pointer"
+            className="px-8 py-3 rounded-sm bg-white text-black text-sm tracking-wider border border-transparent hover:bg-black hover:text-white hover:border hover:border-white transition-colors duration-300 cursor-pointer"
             onClick={() => {
-              const collectionsSection = document.getElementById(
-                "collections-section"
-              );
+              const collectionsSection = document.getElementById("products");
               if (collectionsSection) {
                 collectionsSection.scrollIntoView({ behavior: "smooth" });
               }
             }}
           >
-            View collection
+            View collections
           </motion.button>
         </motion.div>
       </div>

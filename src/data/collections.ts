@@ -33,7 +33,7 @@ export const collections: Collection[] = [
     price: 89.99,
     category: "Short edition",
     image: "/products/dress-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
   // {
   //   id: 'd2',
@@ -65,7 +65,7 @@ export const collections: Collection[] = [
     price: 199.99,
     category: "Alllong",
     image: "/products/jacket-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
 
   // Svitrlər
@@ -75,7 +75,7 @@ export const collections: Collection[] = [
     price: 159.99,
     category: "TheMidiedit",
     image: "/products/sweater-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
   // {
   //   id: 's3',
@@ -110,7 +110,7 @@ export const collections: Collection[] = [
     price: 299.99,
     category: "Alllong",
     image: "/products/suit-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
   // {
   //   id: 'su3',
@@ -127,7 +127,7 @@ export const collections: Collection[] = [
     price: 59.99,
     category: "TheMidiedit",
     image: "/products/activewear-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
   // {
   //   id: 'a2',
@@ -159,7 +159,7 @@ export const collections: Collection[] = [
     price: 39.99,
     category: "Short edition",
     image: "/products/accessory-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
 
   // Ayaqqabılar
@@ -169,7 +169,7 @@ export const collections: Collection[] = [
     price: 119.99,
     category: "Alllong",
     image: "/products/shoes-1.jpg",
-    isBestseller: true,
+    // isBestseller: true,
   },
   // {
   //   id: 'sh2',

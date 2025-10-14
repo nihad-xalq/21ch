@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { TfiLocationPin } from "react-icons/tfi";
 import { useState, useEffect } from "react";
+import { LuHeart } from "react-icons/lu";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -83,47 +85,9 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Link
-                href="/"
-                className={`text-2xl font-light tracking-wider ${
-                  isScrolled || isMenuOpen ? "text-black" : "text-black"
-                }`}
-              >
-                <Logo />
-              </Link>
-            </motion.div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              {menuItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <button
-                    onClick={() => handleNavClick(item.href)}
-                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity cursor-pointer ${
-                      isScrolled ? "text-gray-900" : "text-black"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </motion.div>
-              ))}
-            </nav>
-
             {/* Mobile Menu Button */}
             <motion.div
-              className="md:hidden"
+              className="md:hidden flex items-center"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -171,7 +135,74 @@ const Header = () => {
                   />
                 </div>
               </button>
+              <Link
+                href="https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA"
+                className="text-2xl font-light tracking-wider ml-4"
+              >
+                <TfiLocationPin />
+              </Link>
             </motion.div>
+
+            {/* Logo */}
+            <motion.div
+              className="flex-shrink-0"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link
+                href="/"
+                className={`text-2xl font-light tracking-wider ${
+                  isScrolled || isMenuOpen ? "text-black" : "text-black"
+                }`}
+              >
+                <Logo />
+              </Link>
+            </motion.div>
+
+            {/* desktop heart icon */}
+            <motion.div
+              className="md:hidden flex-shrink-0"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link
+                href="/"
+                className="block text-2xl font-light tracking-wider ml-4"
+              >
+                <LuHeart />
+              </Link>
+            </motion.div>
+
+            {/* mobile Loc icon */}
+            {/* <motion.div
+              className="flex-shrink-0"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            ></motion.div> */}
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-8">
+              {menuItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className={`text-sm tracking-wide hover:opacity-70 transition-opacity cursor-pointer ${
+                      isScrolled ? "text-gray-900" : "text-black"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                </motion.div>
+              ))}
+            </nav>
           </div>
         </div>
       </header>

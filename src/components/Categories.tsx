@@ -1,6 +1,5 @@
 "use client";
 
-import { useParallax } from "@/hooks/useParallax";
 import { collections } from "@/data/collections";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -17,21 +16,6 @@ const categoryMapping = {
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const titleParallax = useParallax({ offset: 30 });
-
-  // Create individual parallax refs for each possible position
-  const parallaxRefs = [
-    useParallax({ offset: 20, direction: "up" }),
-    useParallax({ offset: 20, direction: "down" }),
-    useParallax({ offset: 20, direction: "up" }),
-    useParallax({ offset: 20, direction: "down" }),
-    useParallax({ offset: 20, direction: "up" }),
-    useParallax({ offset: 20, direction: "down" }),
-    useParallax({ offset: 20, direction: "up" }),
-    useParallax({ offset: 20, direction: "down" }),
-    useParallax({ offset: 20, direction: "up" }),
-    useParallax({ offset: 20, direction: "down" }),
-  ];
 
   const filteredCollections =
     activeCategory === "All"
@@ -49,15 +33,17 @@ const Categories = () => {
     >
       <div className="mb-12">
         <motion.h2
-          ref={titleParallax.ref}
-          style={{ y: titleParallax.y }}
           className="text-3xl font-bold text-center mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           Collections
         </motion.h2>
         <div className="flex flex-wrap gap-4 justify-center">
-          {categories.map((category) => (
-            <button
+          {categories.map((category, index) => (
+            <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 min-h-[44px] min-w-[44px] rounded-full transition-all cursor-pointer text-base ${
@@ -65,26 +51,30 @@ const Categories = () => {
                   ? "bg-black text-white"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-800"
               }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredCollections.map((collection, index) => {
-          const parallax = parallaxRefs[index % parallaxRefs.length];
-
-          return (
+        {filteredCollections.map((collection, index) => (
             <motion.div
               key={collection.id}
-              ref={parallax.ref}
-              style={{ y: parallax.y }}
               className="group relative"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
                 <Image
@@ -115,8 +105,7 @@ const Categories = () => {
                 </h3>
               </div>
             </motion.div>
-          );
-        })}
+        ))}
       </div>
     </section>
   );

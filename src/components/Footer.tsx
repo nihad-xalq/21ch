@@ -5,6 +5,7 @@ import ScrollSlideIn from "./animations/ScrollSlideIn";
 import ScrollFadeIn from "./animations/ScrollFadeIn";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
+import Link from "next/link";
 
 const currentYear = new Date().getFullYear();
 
@@ -29,7 +30,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <ScrollSlideIn direction="up" rootMargin="-100px">
             <div>
@@ -44,33 +45,33 @@ const Footer = () => {
               </h3>
               <ul className="space-y-2 md:space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="#collections"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
                     Collections
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#about"
+                  <Link
+                    href="/#about"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
-                    About us
-                  </a>
+                    About 21
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#products"
                     className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
                   >
                     Products
-                  </a>
+                  </Link>
                 </li>
                 {/* <li>
-                  <a href="#contact" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
+                  <Link href="#contact" className="text-gray-500 hover:text-gray-900 transition-colors text-sm">
                     Contact
-                  </a>
+                  </Link>
                 </li> */}
               </ul>
             </div>

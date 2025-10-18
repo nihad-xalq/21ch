@@ -7,7 +7,7 @@ const Logo = () => (
     width={0}
     height={0}
     sizes="100vw"
-    className="w-[100px] h-auto"
+    className="w-[60px] h-auto mt-2"
     priority
   />
 );

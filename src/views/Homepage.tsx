@@ -1,37 +1,29 @@
 "use client";
 
-import { useParallax, useParallaxImage } from "@/hooks/useParallax";
-import ScrollSlideIn from "@/components/animations/ScrollSlideIn";
-import CollectionCarousel from "@/components/CollectionCarousel";
 import ScrollFadeIn from "@/components/animations/ScrollFadeIn";
 import { motion, AnimatePresence } from "framer-motion";
 import LoadingState from "@/components/LoadingState";
 import Categories from "@/components/Categories";
-import { collections } from "@/data/old-collections";
 import { videosArray } from "@/data/videos";
 import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import CMap from "@/components/CMap";
-import Image from "next/image";
+import Link from "next/link";
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const aboutImageParallax = useParallaxImage(1.15);
-  const quoteParallax = useParallax({ offset: 40, direction: "up" });
+  const [hoveredVideoId, setHoveredVideoId] = useState<number | null>(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
-    // Simulate content loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log('Form submitted');
-  // };
 
   return (
     <>
@@ -54,53 +46,145 @@ const Homepage = () => {
           >
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4">
-                Video Gallery
+                Our Recent Products
               </h2>
               {/* <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
                 2025 Collections videos
               </p> */}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {videosArray.map((video, index) => (
-                <motion.div
-                  key={video.id}
-                  className="flex flex-col items-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.2,
-                    ease: "easeOut",
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  <a
-                    href={video.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block w-full"
+            {/* Desktop/Tablet Grid Layout */}
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {videosArray.map((video, index) => {
+                const isHovered = hoveredVideoId === video.id;
+                const isBlurred =
+                  hoveredVideoId !== null && hoveredVideoId !== video.id;
+
+                return (
+                  <motion.div
+                    key={video.id}
+                    className="flex flex-col items-center cursor-pointer"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    animate={{
+                      scale: isHovered ? 1.05 : 1,
+                      filter: isBlurred ? "blur(5px)" : "blur(0px)",
+                    }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeOut",
+                      delay: index * 0.1,
+                    }}
+                    onHoverStart={() => setHoveredVideoId(video.id)}
+                    onHoverEnd={() => setHoveredVideoId(null)}
                   >
-                    <video
-                      src={video.url}
-                      controls={true}
-                      autoPlay={true}
-                      muted
-                      loop
-                      controlsList="nodownload"
-                      className="w-full rounded-2xl shadow-lg mb-3 bg-black transition-transform duration-400 group-hover:scale-105"
-                    />
-                  </a>
-                  <p className="text-gray-700 text-sm text-center">
-                    {video.description}
-                  </p>
+                    <Link
+                      href={video.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block w-full"
+                    >
+                      <video
+                        src={video.url}
+                        controls={false}
+                        autoPlay={true}
+                        muted
+                        loop
+                        controlsList="nodownload"
+                        className="w-full rounded-2xl shadow-lg mb-3 bg-black"
+                      />
+                    </Link>
+                    <p className="text-gray-700 text-sm text-center">
+                      {video.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Mobile Carousel Layout */}
+            <div className="sm:hidden">
+              <div
+                className="relative overflow-hidden"
+                onTouchStart={(e) => {
+                  const touch = e.touches[0];
+                  setTouchStart(touch.clientX);
+                }}
+                onTouchMove={(e) => {
+                  const touch = e.touches[0];
+                  setTouchEnd(touch.clientX);
+                }}
+                onTouchEnd={() => {
+                  if (!touchStart || !touchEnd) return;
+
+                  const distance = touchStart - touchEnd;
+                  const isLeftSwipe = distance > 50;
+                  const isRightSwipe = distance < -50;
+
+                  if (
+                    isLeftSwipe &&
+                    currentVideoIndex < videosArray.length - 1
+                  ) {
+                    setCurrentVideoIndex(currentVideoIndex + 1);
+                  }
+                  if (isRightSwipe && currentVideoIndex > 0) {
+                    setCurrentVideoIndex(currentVideoIndex - 1);
+                  }
+                }}
+              >
+                <motion.div
+                  className="flex"
+                  animate={{
+                    x: -currentVideoIndex * 66.67 + "%",
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                  }}
+                >
+                  {videosArray.map((video, index) => (
+                    <div key={video.id} className="w-2/3 flex-shrink-0 px-2">
+                      <motion.div
+                        className="flex flex-col items-center"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.1,
+                          ease: "easeOut",
+                        }}
+                      >
+                        <Link
+                          href={video.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group block w-full"
+                        >
+                          <video
+                            src={video.url}
+                            controls={false}
+                            autoPlay={true}
+                            muted
+                            loop
+                            controlsList="nodownload"
+                            className="w-full h-full rounded-2xl shadow-lg mb-3 bg-black object-cover"
+                          />
+                        </Link>
+                        <p className="text-gray-700 text-sm text-center">
+                          {video.description}
+                        </p>
+                      </motion.div>
+                    </div>
+                  ))}
                 </motion.div>
-              ))}
+              </div>
             </div>
           </section>
         </ScrollFadeIn>
 
         {/* Collections Section */}
-        <section id="collections" className="bg-gray-50 py-16 sm:py-24">
+        {/* <section id="collections" className="bg-gray-50 py-16 sm:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollFadeIn>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-center mb-12 sm:mb-16">
@@ -111,10 +195,10 @@ const Homepage = () => {
               <CollectionCarousel items={collections} />
             </ScrollSlideIn>
           </div>
-        </section>
+        </section> */}
 
         {/* About Section */}
-        <section
+        {/* <section
           id="about"
           className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-32 overflow-hidden"
         >
@@ -217,7 +301,7 @@ const Homepage = () => {
               </motion.div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Categories Section */}
         {/* <ScrollFadeIn> */}
@@ -300,36 +384,36 @@ const Homepage = () => {
                   </h3>
                   <ul className="text-gray-700 text-sm space-y-2 mb-4">
                     <li>
-                      <span className="font-medium">Address:</span>
-                      Bulbul Avenue 24, Baku
+                      <span className="font-medium">Address:</span> Bulbul
+                      Avenue 24, Baku
                     </li>
                     <li>
                       <span className="font-medium">Phone:</span>{" "}
-                      <a
+                      <Link
                         href="tel:+994107172110"
                         className="hover:underline text-pink-600"
                       >
                         +994 10 717 21 10 (Azerbaijan)
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <span className="font-medium">Email:</span>{" "}
-                      <a
+                      <Link
                         href="mailto:21couturehouse@gmail.com"
                         className="hover:underline text-pink-600"
                       >
                         21couturehouse@gmail.com
-                      </a>
+                      </Link>
                     </li>
                   </ul>
-                  <a
+                  <Link
                     href="https://www.google.com/maps/dir//40e+B%C3%BClb%C3%BCl+Ave,+Baku"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
                   >
                     Get Directions
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

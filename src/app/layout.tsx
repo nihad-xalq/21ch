@@ -77,27 +77,27 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link
           rel="preload"
-          href="/hero/hero-1.webp"
+          href="/hero/hero-1.jpg"
           as="image"
-          type="image/webp"
+          type="image/jpg"
         />
         <link
           rel="preload"
-          href="/hero/hero-2.webp"
+          href="/hero/hero-2.jpg"
           as="image"
-          type="image/webp"
+          type="image/jpg"
         />
         <link
           rel="preload"
-          href="/hero/hero-3.webp"
+          href="/hero/hero-3.jpg"
           as="image"
-          type="image/webp"
+          type="image/jpg"
         />
         <link
           rel="preload"
-          href="/hero/hero-4.webp"
+          href="/hero/hero-4.jpg"
           as="image"
-          type="image/webp"
+          type="image/jpg"
         />
       </head>
       <body className={montserrat.className}>

@@ -39,21 +39,25 @@ const Categories = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          Collections
+          Products
         </motion.h2>
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center w-full md:w-1/2 md:mx-auto">
           {categories.map((category, index) => (
             <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 min-h-[44px] min-w-[44px] rounded-full transition-all cursor-pointer text-base ${
+              className={`px-3 py-3 min-h-[64px] md:min-h-[44px] min-w-[44px] rounded-3xl transition-all cursor-pointer text-base ${
                 activeCategory === category
-                  ? "bg-black text-white"
-                  : "bg-gray-100 hover:bg-gray-200 text-gray-800"
+                  ? "bg-slate-900 text-white"
+                  : "bg-transparent border border-slate-200 hover:bg-gray-200 text-gray-800"
               }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
               viewport={{ once: true }}
             >
               {category}
@@ -64,47 +68,47 @@ const Categories = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredCollections.map((collection, index) => (
-            <motion.div
-              key={collection.id}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-                ease: "easeOut",
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
-                <Image
-                  src="/collections/6.webp"
-                  alt={collection.name}
-                  width={500}
-                  height={500}
-                  className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                {(collection.isNew || collection.isBestseller) && (
-                  <div className="absolute top-2 left-2 flex gap-2">
-                    {collection.isNew && (
-                      <span className="inline-block bg-black text-white text-sm px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
-                        New
-                      </span>
-                    )}
-                    {collection.isBestseller && (
-                      <span className="inline-block bg-rose-600 text-white text-sm font-medium px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
-                        Best Seller
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="mt-4">
-                <h3 className="text-sm font-medium text-gray-900 text-center">
-                  {collection.name}
-                </h3>
-              </div>
-            </motion.div>
+          <motion.div
+            key={collection.id}
+            className="group relative"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.15,
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
+              <Image
+                src="/collections/6.webp"
+                alt={collection.name}
+                width={500}
+                height={500}
+                className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              {(collection.isNew || collection.isBestseller) && (
+                <div className="absolute top-2 left-2 flex gap-2">
+                  {collection.isNew && (
+                    <span className="inline-block bg-black text-white text-sm px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
+                      New
+                    </span>
+                  )}
+                  {collection.isBestseller && (
+                    <span className="inline-block bg-rose-600 text-white text-sm font-medium px-3 py-1.5 rounded min-h-[32px] min-w-[44px]">
+                      Best Seller
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="mt-4">
+              <h3 className="text-sm font-medium text-gray-900 text-center">
+                {collection.name}
+              </h3>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

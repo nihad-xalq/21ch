@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useDevice } from "@/hooks/useDevice";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { heroImages } from "@/data/heroImgs";
 
 // Base64 encoded tiny placeholder image
 const blurDataURL =
@@ -12,12 +14,9 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [, setLoadedImages] = useState<Set<number>>(new Set());
+  const { isMobile } = useDevice();
 
-  // Array of hero images
-  const heroImages = Array.from(
-    { length: 4 },
-    (_, i) => `/hero/hero-${i + 1}.webp`
-  );
+  // Array of hero images with desktop and mobile versions
 
   // Preload images
   useEffect(() => {
@@ -25,8 +24,12 @@ const Hero = () => {
       // Only preload the first image initially
       const loadImage = (index: number) => {
         return new Promise((resolve) => {
+          const imageSrc = isMobile
+            ? heroImages[index].mobile
+            : heroImages[index].desktop;
+
           const img = new window.Image();
-          img.src = heroImages[index];
+          img.src = imageSrc;
           img.onload = () => {
             setLoadedImages((prev) => new Set([...prev, index]));
             resolve(true);
@@ -48,7 +51,7 @@ const Hero = () => {
     };
 
     preloadImages();
-  }, [heroImages]);
+  }, [heroImages, isMobile]);
 
   // Auto-advance slides
   useEffect(() => {
@@ -60,7 +63,7 @@ const Hero = () => {
   }, [heroImages.length]);
 
   return (
-    <section className="relative h-[80vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
+    <section className="relative h-[60vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
       {/* Loading placeholder */}
       {isLoading && (
         <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
@@ -78,13 +81,17 @@ const Hero = () => {
           className="absolute inset-0"
         >
           <Image
-            src={heroImages[currentIndex]}
+            src={
+              isMobile
+                ? heroImages[currentIndex].mobile
+                : heroImages[currentIndex].desktop
+            }
             alt="Hero image"
             fill
             priority={currentIndex === 0}
             quality={90}
             className="object-cover"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            sizes="(max-width: 768px) 100vw, 100vw"
             loading={currentIndex === 0 ? "eager" : "lazy"}
             placeholder="blur"
             blurDataURL={blurDataURL}
@@ -103,14 +110,14 @@ const Hero = () => {
           className="text-center text-white px-4"
         >
           <h1 className="text-4xl md:text-6xl font-light mb-4 tracking-wider">
-            21 Couture
+            21 Couture House
           </h1>
           <p className="text-lg md:text-xl font-light tracking-wide mb-8">
             Discover our new collection
           </p>
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-sm bg-white text-black text-sm tracking-wider border border-transparent hover:bg-black hover:text-white hover:border hover:border-white transition-colors duration-300 cursor-pointer"
+            className="px-8 py-3 rounded-sm bg-transparent text-white hover:bg-white hover:text-black border border-white text-sm tracking-wider transition-colors duration-300 cursor-pointer"
             onClick={() => {
               const collectionsSection = document.getElementById("products");
               if (collectionsSection) {
@@ -124,20 +131,21 @@ const Hero = () => {
       </div>
 
       {/* Navigation Dots */}
-      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
-                {heroImages.map((_, index) => (
-                    <motion.button
-                        key={index}
-                        name="heroImages-carousel-dot"
-                        title="heroImages-carousel-dot"
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors cursor-pointer p-2  ${index === currentIndex ? 'bg-white' : 'bg-white/50'
-                            }`}
-                        whileHover={{ scale: 1.5 }}
-                        whileTap={{ scale: 0.9 }}
-                    />
-                ))}
-            </div> */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
+        {heroImages.map((_, index) => (
+          <motion.button
+            key={index}
+            name="heroImages-carousel-dot"
+            title="heroImages-carousel-dot"
+            onClick={() => setCurrentIndex(index)}
+            className={`w-1 h-1 rounded-full transition-colors cursor-pointer p-1  ${
+              index === currentIndex ? "bg-white" : "bg-white/50"
+            }`}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 0.9 }}
+          />
+        ))}
+      </div>
     </section>
   );
 };

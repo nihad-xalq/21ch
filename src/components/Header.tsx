@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { TfiLocationPin } from "react-icons/tfi";
+import { HeaderLocIcon } from "../../public/icons";
+// import { HeartIcon } from "../../public/icons";
 import { useState, useEffect } from "react";
-import { LuHeart } from "react-icons/lu";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -33,10 +33,11 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { name: "Collections", href: "#collections-section" },
-    { name: "About us", href: "#about" },
-    { name: "Products", href: "#products" },
-    // { name: 'Contact', href: '#contact' },
+    { name: "New", href: "/#new" },
+    { name: "Collections", href: "/#collections" },
+    { name: "Exclusive offers", href: "/#exclusive-offers" },
+    { name: "About 21", href: "/#about" },
+    { name: "Products", href: "/#products" },
   ];
 
   const mobileMenuVariants = {
@@ -77,14 +78,14 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed w-full z-40 transition-all duration-300 ${
+        className={`fixed bg-white w-full z-40 transition-all duration-300 ${
           isScrolled || isMenuOpen
-            ? "bg-white shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
-            : "bg-transparent"
+            ? "shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
+            : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-18">
             {/* Mobile Menu Button */}
             <motion.div
               className="md:hidden flex items-center"
@@ -135,17 +136,17 @@ const Header = () => {
                   />
                 </div>
               </button>
-              <Link
+              {/* <Link
                 href="https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA"
                 className="text-2xl font-light tracking-wider ml-4"
               >
                 <TfiLocationPin />
-              </Link>
+              </Link> */}
             </motion.div>
 
             {/* Logo */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex-shrink-0 translate-x-[-10px]"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -160,8 +161,22 @@ const Header = () => {
               </Link>
             </motion.div>
 
-            {/* desktop heart icon */}
             <motion.div
+              className="md:hidden flex items-center"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link
+                href="https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA"
+                className="text-2xl font-light tracking-wider ml-4"
+              >
+                <HeaderLocIcon />
+              </Link>
+            </motion.div>
+
+            {/* desktop heart icon */}
+            {/* <motion.div
               className="md:hidden flex-shrink-0"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -171,17 +186,9 @@ const Header = () => {
                 href="/"
                 className="block text-2xl font-light tracking-wider ml-4"
               >
-                <LuHeart />
+                <HeartIcon />
               </Link>
-            </motion.div>
-
-            {/* mobile Loc icon */}
-            {/* <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            ></motion.div> */}
+            </motion.div> */}
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">

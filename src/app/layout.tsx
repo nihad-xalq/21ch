@@ -83,7 +83,19 @@ export default function RootLayout({
         />
         <link
           rel="preload"
+          href="/hero/hero-1-h.jpg"
+          as="image"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
           href="/hero/hero-2.jpg"
+          as="image"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          href="/hero/hero-2-h.jpg"
           as="image"
           type="image/jpg"
         />
@@ -95,7 +107,19 @@ export default function RootLayout({
         />
         <link
           rel="preload"
+          href="/hero/hero-3-h.jpg"
+          as="image"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
           href="/hero/hero-4.jpg"
+          as="image"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          href="/hero/hero-4-h.jpg"
           as="image"
           type="image/jpg"
         />

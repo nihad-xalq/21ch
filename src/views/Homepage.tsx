@@ -16,11 +16,22 @@ const Homepage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [videoErrors, setVideoErrors] = useState<Set<number>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+
+    // Detect mobile device
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
 
     return () => clearTimeout(timer);
   }, []);
@@ -84,15 +95,47 @@ const Homepage = () => {
                       rel="noopener noreferrer"
                       className="group block w-full"
                     >
-                      <video
-                        src={video.url}
-                        controls={false}
-                        autoPlay={true}
-                        muted
-                        loop
-                        controlsList="nodownload"
-                        className="w-full rounded-2xl shadow-lg mb-3 bg-black"
-                      />
+                      {videoErrors.has(video.id) ? (
+                        <div className="w-full h-64 rounded-2xl shadow-lg mb-3 bg-gray-200 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="w-12 h-12 mx-auto mb-2 bg-gray-300 rounded-full flex items-center justify-center">
+                              <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                              </svg>
+                            </div>
+                            <p className="text-sm text-gray-500">Video unavailable</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <video
+                          src={video.url}
+                          controls={false}
+                          autoPlay={!isMobile}
+                          muted
+                          loop
+                          playsInline
+                          preload={isMobile ? "none" : "metadata"}
+                          controlsList="nodownload"
+                          className="w-full rounded-2xl shadow-lg mb-3 bg-black"
+                          onError={(e) => {
+                            console.error('Video failed to load:', video.url, e);
+                            setVideoErrors(prev => new Set([...prev, video.id]));
+                          }}
+                          onLoadStart={() => {
+                            console.log('Video loading started:', video.url);
+                          }}
+                          onCanPlay={() => {
+                            console.log('Video can play:', video.url);
+                          }}
+                          onTouchStart={(e) => {
+                            // Force play on mobile touch
+                            if (isMobile) {
+                              const videoElement = e.target as HTMLVideoElement;
+                              videoElement.play().catch(console.error);
+                            }
+                          }}
+                        />
+                      )}
                     </Link>
                     <p className="text-gray-700 text-sm text-center">
                       {video.description}
@@ -161,15 +204,47 @@ const Homepage = () => {
                           rel="noopener noreferrer"
                           className="group block w-full"
                         >
-                          <video
-                            src={video.url}
-                            controls={false}
-                            autoPlay={true}
-                            muted
-                            loop
-                            controlsList="nodownload"
-                            className="w-full h-full rounded-2xl shadow-lg mb-3 bg-black object-cover"
-                          />
+                          {videoErrors.has(video.id) ? (
+                            <div className="w-full h-64 rounded-2xl shadow-lg mb-3 bg-gray-200 flex items-center justify-center">
+                              <div className="text-center">
+                                <div className="w-12 h-12 mx-auto mb-2 bg-gray-300 rounded-full flex items-center justify-center">
+                                  <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                  </svg>
+                                </div>
+                                <p className="text-sm text-gray-500">Video unavailable</p>
+                              </div>
+                            </div>
+                          ) : (
+                            <video
+                              src={video.url}
+                              controls={false}
+                              autoPlay={!isMobile}
+                              muted
+                              loop
+                              playsInline
+                              preload={isMobile ? "none" : "metadata"}
+                              controlsList="nodownload"
+                              className="w-full h-full rounded-2xl shadow-lg mb-3 bg-black object-cover"
+                              onError={(e) => {
+                                console.error('Mobile video failed to load:', video.url, e);
+                                setVideoErrors(prev => new Set([...prev, video.id]));
+                              }}
+                              onLoadStart={() => {
+                                console.log('Mobile video loading started:', video.url);
+                              }}
+                              onCanPlay={() => {
+                                console.log('Mobile video can play:', video.url);
+                              }}
+                              onTouchStart={(e) => {
+                                // Force play on mobile touch
+                                if (isMobile) {
+                                  const videoElement = e.target as HTMLVideoElement;
+                                  videoElement.play().catch(console.error);
+                                }
+                              }}
+                            />
+                          )}
                         </Link>
                         <p className="text-gray-700 text-sm text-center">
                           {video.description}

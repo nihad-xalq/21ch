@@ -97,7 +97,7 @@ const Hero = () => {
             blurDataURL={blurDataURL}
           />
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/40" />
         </motion.div>
       </AnimatePresence>
 

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-type ConnectionType = 'slow' | 'fast' | 'unknown';
+type ConnectionType = "slow" | "fast" | "unknown";
 
 interface ConnectionInfo {
   type: ConnectionType;
@@ -9,26 +9,38 @@ interface ConnectionInfo {
   rtt?: number;
 }
 
+interface NetworkInformation {
+  effectiveType?: string;
+  downlink?: number;
+  rtt?: number;
+  addEventListener?: (event: string, listener: () => void) => void;
+  removeEventListener?: (event: string, listener: () => void) => void;
+}
+
+interface NavigatorWithConnection extends Navigator {
+  connection?: NetworkInformation;
+}
+
 export const useConnection = (): ConnectionInfo => {
   const [connectionInfo, setConnectionInfo] = useState<ConnectionInfo>({
-    type: 'unknown',
+    type: "unknown",
   });
 
   useEffect(() => {
     const checkConnection = () => {
-      if (typeof window !== 'undefined' && 'connection' in navigator) {
-        const connection = (navigator as any).connection;
+      if (typeof window !== "undefined" && "connection" in navigator) {
+        const connection = (navigator as NavigatorWithConnection).connection;
         if (connection) {
           const effectiveType = connection.effectiveType;
           const downlink = connection.downlink;
           const rtt = connection.rtt;
 
-          let type: ConnectionType = 'unknown';
+          let type: ConnectionType = "unknown";
 
-          if (effectiveType === 'slow-2g' || effectiveType === '2g') {
-            type = 'slow';
-          } else if (effectiveType === '3g' || effectiveType === '4g') {
-            type = 'fast';
+          if (effectiveType === "slow-2g" || effectiveType === "2g") {
+            type = "slow";
+          } else if (effectiveType === "3g" || effectiveType === "4g") {
+            type = "fast";
           }
 
           setConnectionInfo({
@@ -44,13 +56,15 @@ export const useConnection = (): ConnectionInfo => {
     checkConnection();
 
     // Listen for connection changes
-    if (typeof window !== 'undefined' && 'connection' in navigator) {
-      const connection = (navigator as any).connection;
+    if (typeof window !== "undefined" && "connection" in navigator) {
+      const connection = (navigator as NavigatorWithConnection).connection;
       if (connection && connection.addEventListener) {
-        connection.addEventListener('change', checkConnection);
-        
+        connection.addEventListener("change", checkConnection);
+
         return () => {
-          connection.removeEventListener('change', checkConnection);
+          if (connection.removeEventListener) {
+            connection.removeEventListener("change", checkConnection);
+          }
         };
       }
     }

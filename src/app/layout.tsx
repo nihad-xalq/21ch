@@ -123,6 +123,32 @@ export default function RootLayout({
           as="image"
           type="image/jpg"
         />
+
+        {/* Preload critical videos */}
+        <link
+          rel="preload"
+          href="/videos/video1.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/video2.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/video3.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/video4.mp4"
+          as="video"
+          type="video/mp4"
+        />
       </head>
       <body className={montserrat.className}>
         <RootWrapper>{children}</RootWrapper>

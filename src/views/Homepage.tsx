@@ -2,6 +2,7 @@
 
 import ScrollFadeIn from "@/components/animations/ScrollFadeIn";
 import { motion, AnimatePresence } from "framer-motion";
+import { useConnection } from "@/hooks/useConnection";
 import LoadingState from "@/components/LoadingState";
 import Categories from "@/components/Categories";
 import { videosArray } from "@/data/videos";
@@ -18,6 +19,7 @@ const Homepage = () => {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [videoErrors, setVideoErrors] = useState<Set<number>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
+  const { type: connectionType } = useConnection();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,6 +46,24 @@ const Homepage = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Smart preload strategy based on device and connection
+  const getPreloadStrategy = () => {
+    if (isMobile) {
+      if (connectionType === 'slow') return 'none';
+      if (connectionType === 'fast') return 'metadata';
+      return 'none'; // Default for mobile
+    }
+    return 'metadata'; // Desktop - change to 'auto' for full preload
+  };
+
+  // Alternative: More aggressive preloading (uncomment if you want full preload)
+  // const getPreloadStrategy = () => {
+  //   if (isMobile) {
+  //     return connectionType === 'slow' ? 'none' : 'metadata';
+  //   }
+  //   return 'auto'; // Full preload on desktop
+  // };
 
   return (
     <>
@@ -135,7 +155,7 @@ const Homepage = () => {
                           muted
                           loop
                           playsInline
-                          preload={isMobile ? "none" : "metadata"}
+                          preload={getPreloadStrategy()}
                           controlsList="nodownload"
                           className="w-full rounded-2xl shadow-lg mb-3 bg-black"
                           onError={(e) => {
@@ -262,7 +282,7 @@ const Homepage = () => {
                               muted
                               loop
                               playsInline
-                              preload={isMobile ? "none" : "metadata"}
+                              preload={getPreloadStrategy()}
                               controlsList="nodownload"
                               className="w-full h-full rounded-2xl shadow-lg mb-3 bg-black object-cover"
                               onError={(e) => {

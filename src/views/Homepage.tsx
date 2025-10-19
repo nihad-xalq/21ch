@@ -504,7 +504,7 @@ const Homepage = () => {
                 to seeing you at 21 Couture House!
               </p>
             </div>
-            <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 items-center">
               <div className="flex-1 w-full">
                 <CMap />
               </div>
@@ -515,8 +515,8 @@ const Homepage = () => {
                   </h3>
                   <ul className="text-gray-700 text-sm space-y-2 mb-4">
                     <li>
-                      <span className="font-medium">Address:</span> Bulbul
-                      Avenue 24, Baku
+                      <span className="font-medium">Address:</span> Nizami 91C,
+                      Baku
                     </li>
                     <li>
                       <span className="font-medium">Phone:</span>{" "}
@@ -537,14 +537,14 @@ const Homepage = () => {
                       </Link>
                     </li>
                   </ul>
-                  <Link
+                  {/* <Link
                     href="https://www.google.com/maps/dir//40e+B%C3%BClb%C3%BCl+Ave,+Baku"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
                   >
                     Get Directions
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

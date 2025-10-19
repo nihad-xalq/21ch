@@ -90,7 +90,7 @@ const Footer = () => {
                   Phone: +994 10 717 21 10 (Azerbaijan)
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Address: Bulbul Avenue 24, Baku
+                  Address: Nizami 91C, Baku
                 </p>
               </div>
             </div>

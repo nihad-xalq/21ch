@@ -2,12 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { HeaderLocIcon } from "../../public/icons";
-// import { HeartIcon } from "../../public/icons";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 
-const Header = () => {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -79,9 +78,7 @@ const Header = () => {
     <>
       <header
         className={`fixed bg-white w-full z-40 transition-all duration-300 ${
-          isScrolled || isMenuOpen
-            ? "shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
-            : ""
+          isScrolled || isMenuOpen ? "shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,17 +133,11 @@ const Header = () => {
                   />
                 </div>
               </button>
-              {/* <Link
-                href="https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA"
-                className="text-2xl font-light tracking-wider ml-4"
-              >
-                <TfiLocationPin />
-              </Link> */}
             </motion.div>
 
             {/* Logo */}
             <motion.div
-              className="flex-shrink-0 translate-x-[-10px]"
+              className="flex-shrink-0"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -248,6 +239,4 @@ const Header = () => {
       </AnimatePresence>
     </>
   );
-};
-
-export default Header;
+}

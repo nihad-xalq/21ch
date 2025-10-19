@@ -7,7 +7,7 @@ const CMap = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleOpenMap = () => {
-    window.open("https://maps.app.goo.gl/rGAZDnrHBRR5G8pbA", "_blank");
+    window.open("https://maps.app.goo.gl/ePh56Co1q3argXYB8", "_blank");
   };
 
   return (
@@ -18,7 +18,7 @@ const CMap = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3030.123456789012!2d49.8417597!3d40.3963904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d002416e5af%3A0xddcfb6085e3a09b6!2s21%20Couture%20House!5e1!3m2!1sen!2saz!4v1747814921921!5m2!1sen!2saz"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d847.9641600486759!2d49.83997916962193!3d40.37316781992518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307db022ba2f03%3A0x5b662ca9a52433b7!2zOTEgTml6YW1pIEvDvMOnyZlzaSwgQmFrxLEgMTAzMw!5e1!3m2!1sen!2saz!4v1760887078547!5m2!1sen!2saz"
           width="100%"
           height="100%"
           allowFullScreen={true}
@@ -40,7 +40,7 @@ const CMap = () => {
         onClick={handleOpenMap}
       >
         <MdLocationOn className="w-5 h-5 text-black" />
-        <span>Bulbul Avenue 24, Baku</span>
+        <span>Nizami 91C, Baku</span>
         <MdOpenInNew className="w-4 h-4 opacity-0 -translate-x-2 group-hover/badge:opacity-100 group-hover/badge:translate-x-0 transition-all duration-300" />
       </div>
 

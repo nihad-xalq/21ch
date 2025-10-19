@@ -63,7 +63,7 @@ const Hero = () => {
   }, [heroImages.length]);
 
   return (
-    <section className="relative h-[65vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
+    <section className="relative h-[70vh] sm:h-[50vh] md:h-[92vh] w-full overflow-hidden mb-0">
       {/* Loading placeholder */}
       {isLoading && (
         <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
@@ -138,7 +138,7 @@ const Hero = () => {
             name="heroImages-carousel-dot"
             title="heroImages-carousel-dot"
             onClick={() => setCurrentIndex(index)}
-            className={`w-1 h-1 rounded-full transition-colors cursor-pointer p-1  ${
+            className={`w-1 h-1 rounded-full transition-colors cursor-pointer p-1.5 md:p-1  ${
               index === currentIndex ? "bg-white" : "bg-white/50"
             }`}
             whileHover={{ scale: 1.5 }}

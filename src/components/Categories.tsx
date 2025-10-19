@@ -41,12 +41,12 @@ const Categories = () => {
         >
           Products
         </motion.h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center w-full md:w-1/2 md:mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center w-full md:w-3/4 xl:w-1/2 md:mx-auto">
           {categories.map((category, index) => (
             <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-3 py-3 min-h-[64px] md:min-h-[44px] min-w-[44px] rounded-3xl transition-all cursor-pointer text-base ${
+              className={`px-2 py-3 min-h-[64px] md:min-h-[44px] min-w-[44px] rounded-3xl transition-all cursor-pointer text-base ${
                 activeCategory === category
                   ? "bg-slate-900 text-white"
                   : "bg-transparent border border-slate-200 hover:bg-gray-200 text-gray-800"
